@@ -30,23 +30,32 @@ class Home extends Component
 
         <h1>overworkshop</h1>
 
-        <div className="container">
+        <div className="container darkblue p-5">
 
           <div className="row">
             {
               this.state.postsList.map(post =>
               {
+                var shortDesc = post.desc;
+                if (shortDesc.length > 255)
+                {
+                  shortDesc = shortDesc.slice(0, 255).concat(" ... click for more");//so shit does not get to long
+
+                }
                 return (
+                  <>
+                    <div className="col-1 col-md-1 gold">
+                      <p>{post.score}</p>
+                    </div>
+                    <div className="col-10 col-md-5 lightblue">
 
+                      <h2>{post.title}</h2>
 
-                  <div className="col-12 col-md-6">
+                      <p>{post.link}</p>
+                      <p>{shortDesc}</p>
 
-                    <h2>{post.title}</h2>
-
-                    <p>{post.link}</p>
-                    <p>{post.desc}</p>
-
-                  </div>
+                    </div>
+                  </>
 
 
                 )
