@@ -8,6 +8,9 @@ const postControl = require("../../controllers/postController");
 router.route("/getPosts")
 .get(postControl.getPosts)
 
+router.route("/getPost/:id")
+.get(postControl.getPost)
+
 router.route("/add")
 .post(fileUploader, postControl.addPost)//use multipart to test in insomnia
 
