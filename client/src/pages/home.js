@@ -48,7 +48,7 @@ class Home extends Component
                     <div className="card col-12 col-md-6 lightblue">
                       <div className="row">
 
-                        <div className="col-2 col-md-2 gold">
+                        <div id={post.id} className="col-2 col-md-2 gold">
                           <div>upvote</div>
                           <p>{post.score}</p>
                           <div>downvote</div>
