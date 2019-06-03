@@ -48,6 +48,16 @@
   background-color: black;
 }
 
+/* just yeet the bastard to the bottom */
+.row.match-my-cols 
+{
+  overflow: hidden; 
+}
+.row.match-my-cols [class*="col-"]{
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

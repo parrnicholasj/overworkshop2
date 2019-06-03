@@ -32,7 +32,7 @@ class Home extends Component
 
         <div className="container darkblue p-5">
 
-          <div className="row">
+          <div className="row match-my-cols">
             {
               this.state.postsList.map(post =>
               {
@@ -44,17 +44,24 @@ class Home extends Component
                 }
                 return (
                   <>
-                    <div className="col-1 col-md-1 gold">
-                      <p>{post.score}</p>
+
+                    <div className="card col-12 col-md-6 lightblue">
+                      <div className="row">
+
+                        <div className="col-2 col-md-2 gold">
+                          <div>upvote</div>
+                          <p>{post.score}</p>
+                          <div>downvote</div>
+                        </div>
+                        <div className="col-10 col-md-10 card-body">
+                          <h5 className="card-title">{post.title}</h5>
+                          <p className="card-text">{shortDesc}</p>
+                          <a href="#" className="card-link">{post.link}</a>
+                        </div>
+
+                      </div>
                     </div>
-                    <div className="col-10 col-md-5 lightblue">
 
-                      <h2>{post.title}</h2>
-
-                      <p>{post.link}</p>
-                      <p>{shortDesc}</p>
-
-                    </div>
                   </>
 
 
