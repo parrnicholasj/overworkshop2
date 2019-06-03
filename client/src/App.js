@@ -1,10 +1,20 @@
 import React from 'react';
 import Home from './pages/home';
+import Post from './pages/viewPost';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
-    <Home />
+    <Router>
+      <React.Fragment>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/viewPost" component={Post} />
+          
+        </Switch>
+      </React.Fragment>
+    </Router>
   );
 }
 
