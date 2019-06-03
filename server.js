@@ -2,10 +2,11 @@ var express = require("express");
 
 var app = express();
 
+app.set('view engine', 'ejs')
 
 const postRoutes = require("./routes/api/apiPostRoutes")
 
-const routes = require("./routes");
+const userRoutes = require("./routes/api/user-routes");
 
 var PORT = process.env.PORT || 3001;
 
@@ -23,7 +24,7 @@ app.use(express.static("public"));
 
 app.use(postRoutes);//see routes/index.js
 
-app.use(routes);
+app.use(userRoutes);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
