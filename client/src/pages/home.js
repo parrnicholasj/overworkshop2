@@ -30,23 +30,39 @@ class Home extends Component
 
         <h1>overworkshop</h1>
 
-        <div className="container">
+        <div className="container darkblue p-5">
 
-          <div className="row">
+          <div className="row match-my-cols">
             {
               this.state.postsList.map(post =>
               {
+                var shortDesc = post.desc;
+                if (shortDesc.length > 255)
+                {
+                  shortDesc = shortDesc.slice(0, 255).concat(" ... click for more");//so shit does not get to long
+
+                }
                 return (
+                  <>
 
+                    <div className="card col-12 col-md-6 lightblue">
+                      <div className="row">
 
-                  <div className="col-12 col-md-6">
+                        <div className="col-2 col-md-2 gold">
+                          <div>upvote</div>
+                          <p>{post.score}</p>
+                          <div>downvote</div>
+                        </div>
+                        <div className="col-10 col-md-10 card-body">
+                          <h5 className="card-title">{post.title}</h5>
+                          <p className="card-text">{shortDesc}</p>
+                          <a href="#" className="card-link">{post.link}</a>
+                        </div>
 
-                    <h2>{post.title}</h2>
+                      </div>
+                    </div>
 
-                    <p>{post.link}</p>
-                    <p>{post.desc}</p>
-
-                  </div>
+                  </>
 
 
                 )
