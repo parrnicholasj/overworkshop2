@@ -5,7 +5,8 @@ export const getPosts = () => {
 };
 
 export const addPost = (post) => {
-  return axios.post(`/posts/add`, { post }).then(res => {
+  console.log("yes hitting")
+  return axios.post(`/posts/add`, post ).then(res => {
     console.log(res);
     console.log(res.data);
   });

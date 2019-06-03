@@ -7,8 +7,8 @@ class Post extends Component {
       super(props);
       this.state = {
         title: '',
-        description: '',
-        id: ''
+        desc: '',
+        link: ''
       };
   
       this.handleChange = this.handleChange.bind(this);
@@ -34,7 +34,15 @@ class Post extends Component {
         link: this.state.link,
         desc: this.state.desc
       }
-      addPost(post);      
+      console.log(JSON.stringify(post)  + "  add post")
+
+      addPost(post)
+        .then(postResponse => {
+          console.log(postResponse.data);
+        })
+        .catch(err => {
+          console.log(err);
+        })
 
 
     }
@@ -60,18 +68,18 @@ class Post extends Component {
               <label htmlFor="UniqueId">Unique ID</label>
               <input
                 type="text"
-                value={this.state.id} 
+                value={this.state.link} 
               onChange={this.handleChange}
                 className="form-control"
                 id="link"
                 placeholder="ID"
-                name="id"
+                name="link"
               />
             </div>
           </div>
           <div className="form-group">
             <label htmlFor="Description">Description</label>
-            <textarea className="form-control" id="desc" rows="3" value={this.state.description} name="description" 
+            <textarea className="form-control" id="desc" rows="3" value={this.state.desc} name="desc" 
               onChange={this.handleChange} />
           </div>
           <input id="submit" type="submit" value="submit" className="btn btn-success btn-lg"/>
