@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { addPost } from '../utils/postapi';
 
 class Post extends Component {
 
@@ -23,6 +24,19 @@ class Post extends Component {
       event.preventDefault();
       console.log('A name was submitted: ' + JSON.stringify(this.state));
       alert('A name was submitted: ' + JSON.stringify(this.state));
+
+//need to update this to work with images /4***************************************
+
+//*************************************************** */
+
+      const post = {
+        title: this.state.title,
+        link: this.state.link,
+        desc: this.state.desc
+      }
+      addPost(post);      
+
+
     }
 
   render() {
