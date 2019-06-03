@@ -1,38 +1,37 @@
 import React, { Component } from 'react';
 import { getPost } from '../utils/postapi';
 
-var id = 1
 
 class Post extends Component {
   state = {
-    postInfo: []
+    postInfo: [],
+    id: 1
   };
-
+  
   componentDidMount() {
-    this.handleViewPosts();
+    this.handleViewPosts(this.state.id);
   }
   
   
-  
-  handleViewPosts = () => {
-    getPost(id)
-      .then(({ data }) => {
+  handleViewPosts = (postId) => {
+    getPost(postId)
+      .then(( data ) => {
         console.log("handleViewPosts");
         console.log(data);
 
-        this.setState({ postInfo });
+        this.setState({ data });
       })
       .catch(err => console.log(err));
   };
 
   render() {
-    console.log(this.state.postInfo)
+    // console.log(this.state.data)
     return (
       <React.Fragment>
         <h1 className="text-light display-4">Overworkshop</h1>
 
         <div className="conatiner darkblue p-5">
-          {console.log("title " +  this.state.postInfo)}
+          
 
 
           
