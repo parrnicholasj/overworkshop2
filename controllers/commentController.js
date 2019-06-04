@@ -22,8 +22,35 @@ const addComment = (req, res) => {
     });
 
 };
+
 const getComments = (req, res) => {
-  db.Comment.findAll({}) //this one is not being used currently
+  db.Comment.findAll({}) 
+    .then(dbCommentData => {
+      res.json(dbCommentData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.json(err);
+    });
+}
+
+const getCommentsByPost = (req, res) => {
+  db.Comment.findAll({where: {
+    PostId: req.postId
+  }}) 
+    .then(dbCommentData => {
+      res.json(dbCommentData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.json(err);
+    });
+}
+
+const getCommentsByUser = (req, res) => {
+  db.Comment.findAll({where: {
+    UserId: req.userId
+  }}) 
     .then(dbCommentData => {
       res.json(dbCommentData);
     })
@@ -58,6 +85,8 @@ const deleteComment = (req, res) => {//accepts as a parameter
 module.exports = {
   addComment,
   getComments,
+  getCommentsByPost,
+  getCommentsByUser,
   getComment,
   deleteComment
 }
