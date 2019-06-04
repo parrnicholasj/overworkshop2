@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Comment = sequelize.define("Post", 
+  var Comment = sequelize.define("Comment", 
   {
 
     author: {
@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    desc: {
+    content: {
       type: DataTypes.TEXT,
       allowNull: false
     }
