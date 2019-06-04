@@ -1,8 +1,14 @@
 const db = require('../models');
 
+
 const addPost = (req, res) => { //adds a post screenshots optional
   console.log(req.body);
   console.log("postcontroller hitting")
+  console.log('-----------' + req.user);
+  if (!req.user) {
+    console.log('not logged in');
+    return 
+  }
 
   const {
     title,
@@ -10,12 +16,16 @@ const addPost = (req, res) => { //adds a post screenshots optional
     desc,
     screenshot
   } = req.body;
+
+  const UserId = req.user.id;
+  console.log(req.user.id)
   console.log("adding a post")
 
   db.Post.create({
       title,
       link,
       desc,
+      UserId,
       screenshot
     }).then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -36,6 +46,7 @@ const getPosts = (req, res) => {
 }
 
 const getPost = (req, res) => {
+  console.log("getting post");
   db.Post.findOne({where: {id : req.params.id}      
   }).then(dbPostData => {
       res.json(dbPostData);
