@@ -30,5 +30,17 @@ module.exports = function(sequelize, DataTypes) {
     }
     
   });
+
+  Post.associate = function(models) {
+    models.Post.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    })
+  }
+
+  Post.associate = function (models) {
+    models.Post.hasMany(models.Comment)
+  }
   return Post;
 };
