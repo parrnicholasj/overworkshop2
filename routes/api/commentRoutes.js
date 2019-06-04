@@ -7,6 +7,12 @@ const commentControl = require("../../controllers/commentController");
 router.route("/getcomments")
 .get(commentControl.getComments)
 
+router.route("/getcommentsbyuser")
+.get(commentControl.getCommentsByUser)
+
+router.route("/getcommentsbypost")
+.get(commentControl.getCommentsByPost)
+
 router.route("/getcomment/:id")
 .get(commentControl.getComment)
 

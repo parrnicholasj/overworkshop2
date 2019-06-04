@@ -8,6 +8,9 @@ const postControl = require("../../controllers/postController");
 router.route("/getPosts")
 .get(postControl.getPosts)
 
+router.route("/getPostsbyuser")
+.get(postControl.getPostsByUser)
+
 router.route("/getPost/:id?")
 .get(postControl.getPost)
 

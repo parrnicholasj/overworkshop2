@@ -45,6 +45,18 @@ const getPosts = (req, res) => {
     });
 }
 
+const getPostsByUser = (req, res) => {
+  db.Post.findAll({where: {
+    UserId: req.userId
+  }}) .then(dbPostData => {
+      res.json(dbPostData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.json(err);
+    });
+}
+
 const getPost = (req, res) => {
   console.log("getting post");
   db.Post.findOne({where: {id : req.params.id}      
@@ -143,6 +155,7 @@ const downVotePost = (req, res) => {
 module.exports = {
   addPost,
   getPosts,
+  getPostsByUser,
   getPost,
   deletePost,
   updatePost,
