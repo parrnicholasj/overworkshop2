@@ -2,6 +2,7 @@ const db = require('../models');
 
 const addPost = (req, res) => { //adds a post screenshots optional
   console.log(req.body);
+  console.log("postcontroller hitting")
 
   const {
     title,
@@ -9,6 +10,7 @@ const addPost = (req, res) => { //adds a post screenshots optional
     desc,
     screenshot
   } = req.body;
+  console.log("adding a post")
 
   db.Post.create({
       title,
@@ -25,6 +27,17 @@ const addPost = (req, res) => { //adds a post screenshots optional
 const getPosts = (req, res) => {
   db.Post.findAll({}) //this one is not being used currently
     .then(dbPostData => {
+      res.json(dbPostData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.json(err);
+    });
+}
+
+const getPost = (req, res) => {
+  db.Post.findOne({where: {id : req.params.id}      
+  }).then(dbPostData => {
       res.json(dbPostData);
     })
     .catch(err => {
@@ -119,6 +132,7 @@ const downVotePost = (req, res) => {
 module.exports = {
   addPost,
   getPosts,
+  getPost,
   deletePost,
   updatePost,
   upVotePost,

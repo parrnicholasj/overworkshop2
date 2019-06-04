@@ -1,12 +1,14 @@
 import React from 'react';
 import Home from './pages/home';
-import Login from './pages/login';
+import Post from './pages/addPost';
 import './App.css';
 
 function App() {
   return (
-    // <Login />,
+    <div>
     <Home />
+    <Post />
+    </div>
   );
 }
 
