@@ -46,6 +46,7 @@ const getPosts = (req, res) => {
 }
 
 const getPost = (req, res) => {
+  console.log("getting post");
   db.Post.findOne({where: {id : req.params.id}      
   }).then(dbPostData => {
       res.json(dbPostData);
