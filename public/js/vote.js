@@ -3,12 +3,7 @@ $(".voteUp").on("click", function(){
 
   const getId=$(this).attr("upVoteId")
 
-  console.log(getId)
-
-
-  if (!authenticate()) {
-    return
-  }
+  console.log(getId);
 
   $.ajax({
     url: `/upvotepost/${getId}`,

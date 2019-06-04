@@ -1,9 +1,20 @@
-var express = require("express");
+const express = require("express");
+const passport = require('passport');
+const passportSetup = require('./config/passport-setup');
+const cookieSession = require('cookie-session');
 
 var app = express();
 
+// set up a cookie age and a key you wanna encrypt it with
+app.use(cookieSession({
+  maxAge: 1 * 60 * 60 * 1000,
+  keys: ['iGotTheKeys']
+}))
 
-const postRoutes = require("./routes/api/apiPostRoutes")
+// initalize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 const routes = require("./routes");
 
@@ -19,16 +30,15 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
-// Routes
-
-app.use(postRoutes);//see routes/index.js
-
 app.use(routes);
+
+
+
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({force: false}).then(function() {
-  app.listen(PORT, function() {
+db.sequelize.sync({ force: false }).then(function () {
+  app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   });
 });
