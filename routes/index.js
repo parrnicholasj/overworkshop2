@@ -5,7 +5,7 @@ router.use(apiRoutes);
 
 router.use((req, res) => {
   res.json({
-    message: "404 Bro"
+    message: "404 Err"
   })
 });
 

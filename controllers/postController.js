@@ -2,6 +2,7 @@ const db = require('../models');
 
 const addPost = (req, res) => { //adds a post screenshots optional
   console.log(req.body);
+  console.log("postcontroller hitting")
 
   const {
     title,
@@ -9,6 +10,7 @@ const addPost = (req, res) => { //adds a post screenshots optional
     desc,
     screenshot
   } = req.body;
+  console.log("adding a post")
 
   db.Post.create({
       title,
