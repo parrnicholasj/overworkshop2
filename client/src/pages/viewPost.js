@@ -12,27 +12,25 @@ class Post extends Component {
     this.handleViewPosts(this.state.id);
   }
   
-  
   handleViewPosts = (postId) => {
     getPost(postId)
       .then(( data ) => {
         console.log("handleViewPosts");
         console.log(data);
 
-        this.setState({ data });
+        this.setState({ postInfo: data.data });
       })
       .catch(err => console.log(err));
   };
 
   render() {
-    // console.log(this.state.data)
+     console.log(this.state.postInfo)
     return (
       <React.Fragment>
         <h1 className="text-light display-4">Overworkshop</h1>
 
         <div className="conatiner darkblue p-5">
-          
-
+        
 
           
 
