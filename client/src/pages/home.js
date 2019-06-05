@@ -7,9 +7,7 @@ import Login from './login';
 class Home extends Component
 {
   state = {
-    postsList: [],
-    redirect: false,
-    redirectID: ""
+    postsList: []
   };
 
   componentDidMount()
@@ -27,27 +25,12 @@ class Home extends Component
       .catch(err => console.log(err));
   };
 
-  setRedirect = (id) => {
-    this.setState({
-      redirect: true,
-      redirectID: id
-    })
-  }
-  renderRedirect = (id) => {
-    console.log("redirecting");
-    if (this.state.redirect) {
-      return <Redirect to={`/viewPost/${id}`} />
-    }
-  }
-
   handleSubmit(event, id)
   {//when clicked sends user to that posts page
     event.preventDefault();
     console.log("post id is " + id);
 
-    this.props.history.push("/")//allows user to go back to the homepage
-    
-    this.setRedirect(id);
+
 
   }
 
@@ -61,6 +44,8 @@ class Home extends Component
       {this.renderRedirect(this.state.redirectID)}
 
         <h1>overworkshop</h1>
+      <Login />
+
 
         <Login />
 
@@ -78,7 +63,6 @@ class Home extends Component
                 }
                 return (
                   <>
-
                     <div id={post.id} className="card col-12 col-md-6 lightblue">
                       <div className="row">
 
@@ -93,7 +77,7 @@ class Home extends Component
                           <a href="#" className="card-link">{post.link}</a>
 
                           <form onSubmit={(e) => {this.handleSubmit(e, post.id)}}>
-                          <input id="submit" type="submit" value="view" className="btn btn-success btn-lg" />
+                          <input id="submit" type="submit" value="submit" className="btn btn-success btn-lg" />
                           </form>
 
                       </div>
