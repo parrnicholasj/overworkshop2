@@ -14,7 +14,7 @@ router.route("/getPostsbyuser")
 router.route("/getPost/:id?")
 .get(postControl.getPost)
 
-router.route("/add")
+router.route("/add/:id?")
 .post(postControl.addPost)//use multipart to test in insomnia
 
 router.route("/updatepost/:id")
