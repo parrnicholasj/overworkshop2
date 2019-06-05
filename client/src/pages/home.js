@@ -68,10 +68,10 @@ class Home extends Component
                           <p className="card-text">{shortDesc}</p>
                           <a href="#" className="card-link">{post.link}</a>
 
-                          <form onSubmit={(e) => {this.handleSubmit(e, post.id)}}>
+                          {/* <form onSubmit={(e) => {this.handleSubmit(e, post.id)}}>
                           <input id="submit" type="submit" value="submit" className="btn btn-success btn-lg" />
-                          </form>
-
+                          </form> */}
+                          <button onClick={(e) => { this.handleSubmit(e, post.id) }}>viewPost</button>
                       </div>
 
                     </div>

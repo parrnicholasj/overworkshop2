@@ -4,7 +4,7 @@ import { getPost } from '../utils/postapi';
 
 class Post extends Component {
   state = {
-    postInfo: [],
+    postId: [],
     id: 1
   };
   
@@ -27,6 +27,8 @@ class Post extends Component {
       .catch(err => console.log(err));
   };
 
+
+
   render() {
      console.log(this.state.postInfo)
     return (
@@ -34,6 +36,16 @@ class Post extends Component {
         <h1 className="text-light display-4">Overworkshop</h1>
 
         <div className="conatiner darkblue p-5">
+          {this.state.postId.map(post =>
+          {
+            var comment = post.desc;
+            
+          }
+            
+          )}
+          
+
+        
         
 
           
