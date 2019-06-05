@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { addPost } from '../utils/postapi';
 
-class Post extends Component {
+class MakePost extends Component {
 
     constructor(props) {
       super(props);
@@ -89,4 +89,4 @@ class Post extends Component {
   }
 }
 
-export default Post;
+export default MakePost;
