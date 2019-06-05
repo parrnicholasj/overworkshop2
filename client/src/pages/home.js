@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getPosts } from '../utils/postapi';
-import MakePost from './makePost';
+import { Redirect } from 'react-router-dom';
+import MakePost from '../components/makePost';
 import Login from './login';
 
 class Home extends Component
@@ -38,9 +39,15 @@ class Home extends Component
     console.log(this.state.postsList)
     return (
       <React.Fragment>
+
+{/* this must be in here to function */}
+      {this.renderRedirect(this.state.redirectID)}
+
         <h1>overworkshop</h1>
       <Login />
 
+
+        <Login />
 
         <div className="container darkblue p-5">
 
