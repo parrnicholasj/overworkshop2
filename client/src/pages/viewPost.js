@@ -12,7 +12,6 @@ class Post extends Component {
     this.handleViewPosts(this.state.id);
   }
   
-  
   handleViewPosts = (postId) => {
     getPost(postId)
       .then(( data ) => {

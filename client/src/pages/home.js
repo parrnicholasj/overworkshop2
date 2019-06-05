@@ -23,6 +23,15 @@ class Home extends Component
       .catch(err => console.log(err));
   };
 
+  handleSubmit(event, id)
+  {//when clicked sends user to that posts page
+    event.preventDefault();
+    console.log("post id is " + id);
+
+
+
+  }
+
   render()
   {
     console.log(this.state.postsList)
@@ -46,10 +55,10 @@ class Home extends Component
                 return (
                   <>
 
-                    <div className="card col-12 col-md-6 lightblue">
+                    <div id={post.id} className="card col-12 col-md-6 lightblue">
                       <div className="row">
 
-                        <div id={post.id} className="col-2 col-md-2 gold">
+                        <div className="col-2 col-md-2 gold">
                           <div>upvote</div>
                           <p>{post.score}</p>
                           <div>downvote</div>
@@ -58,17 +67,22 @@ class Home extends Component
                           <h5 className="card-title">{post.title}</h5>
                           <p className="card-text">{shortDesc}</p>
                           <a href="#" className="card-link">{post.link}</a>
-                        </div>
+
+                          <form onSubmit={(e) => {this.handleSubmit(e, post.id)}}>
+                          <input id="submit" type="submit" value="submit" className="btn btn-success btn-lg" />
+                          </form>
 
                       </div>
+
                     </div>
+                  </div>
 
                   </>
 
 
-                )
-              })
-            }
+          )
+        })
+      }
           </div>
 
         </div>
