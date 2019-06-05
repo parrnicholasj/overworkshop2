@@ -9,13 +9,16 @@ class Post extends Component {
   };
   
   componentDidMount() {
-    this.handleViewPosts(this.state.id);
+    console.log(this.props);
+    // read post id from url bar
+    const postId = this.props.match.params.postId;
+    this.handleViewPosts(postId);
   }
   
-  
   handleViewPosts = (postId) => {
+    console.log(postId);
     getPost(postId)
-      .then(( data ) => {
+      .then(({ data } ) => {
         console.log("handleViewPosts");
         console.log(data);
 
