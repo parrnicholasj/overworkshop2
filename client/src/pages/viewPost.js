@@ -4,7 +4,7 @@ import { getPost } from '../utils/postapi';
 
 class Post extends Component {
   state = {
-    postId: [],
+    postInfo: [],
     id: 1
   };
   
@@ -18,8 +18,9 @@ class Post extends Component {
   handleViewPosts = (postId) => {
     console.log(postId);
     getPost(postId)
-      .then(({ data } ) => {
-        console.log("handleViewPosts");
+      .then(({ data }) => {
+        
+        
         console.log(data);
 
         this.setState({ postInfo: data.data });
@@ -36,13 +37,13 @@ class Post extends Component {
         <h1 className="text-light display-4">Overworkshop</h1>
 
         <div className="conatiner darkblue p-5">
-          {this.state.postId.map(post =>
-          {
-            var comment = post.desc;
+          {this.state.postInfo.map(post => {
             
-          }
-            
-          )}
+            <React.Fragment>
+            <h1>{post.title}</h1>
+            </React.Fragment>
+          })}
+         
           
 
         
