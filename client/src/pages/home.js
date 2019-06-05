@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { getPosts } from '../utils/postapi';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 import MakePost from '../components/makePost';
+import Login from './login';
 
 class Home extends Component
 {
@@ -60,6 +61,8 @@ class Home extends Component
       {this.renderRedirect(this.state.redirectID)}
 
         <h1>overworkshop</h1>
+
+        <Login />
 
         <div className="container darkblue p-5">
 
