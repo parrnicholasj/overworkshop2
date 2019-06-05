@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getPosts } from '../utils/postapi';
 import MakePost from './makePost';
+import Login from './login';
 
 class Home extends Component
 {
@@ -37,8 +38,9 @@ class Home extends Component
     console.log(this.state.postsList)
     return (
       <React.Fragment>
-
         <h1>overworkshop</h1>
+      <Login />
+
 
         <div className="container darkblue p-5">
 
@@ -54,7 +56,6 @@ class Home extends Component
                 }
                 return (
                   <>
-
                     <div id={post.id} className="card col-12 col-md-6 lightblue">
                       <div className="row">
 
