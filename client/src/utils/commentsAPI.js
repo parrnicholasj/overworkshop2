@@ -1,18 +1,18 @@
 import axios from "axios";
 
-export const getPosts = () => {
-  return axios.get("/posts/getPosts");
+export const getComments = () => {
+  return axios.get("/comments/getComments");
 };
 
-export const addPost = (post) => {
+export const addComment = (comment) => {
   console.log("yes hitting")
-  return axios.post('/posts/add', post ).then(res => {
+  return axios.post('/comments/add', comment ).then(res => {
     console.log(res);
     console.log(res.data);
   });
 };
 
 export default {
-  getPosts,
-  addPost
+  getComments,
+  addComment
 };
