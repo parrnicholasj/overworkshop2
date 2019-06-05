@@ -1,15 +1,8 @@
 import axios from "axios";
 
 export const getPosts = () => {
-  return axios.get('/posts/getPosts');
-  
+  return axios.get("/posts/getPosts");
 };
-
-export const getPost = (id) => {
-  return axios.get('/posts/getPost/:id?');
-  
-};
-
 
 export const addPost = (post) => {
   console.log("yes hitting")
@@ -21,7 +14,5 @@ export const addPost = (post) => {
 
 export default {
   getPosts,
-  getPost,
   addPost
-
 };
