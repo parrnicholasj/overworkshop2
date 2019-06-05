@@ -56,6 +56,7 @@ class Home extends Component
     return (
       <React.Fragment>
 
+{/* this must be in here to function */}
       {this.renderRedirect(this.state.redirectID)}
 
         <h1>overworkshop</h1>
