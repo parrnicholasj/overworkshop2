@@ -6,7 +6,7 @@ export const getPosts = () => {
 
 export const addPost = (post) => {
   console.log("yes hitting")
-  return axios.post(`/posts/add`, post ).then(res => {
+  return axios.post('/posts/add', post ).then(res => {
     console.log(res);
     console.log(res.data);
   });
