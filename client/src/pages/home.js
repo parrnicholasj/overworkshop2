@@ -43,6 +43,8 @@ class Home extends Component
   {//when clicked sends user to that posts page
     event.preventDefault();
     console.log("post id is " + id);
+
+    this.props.history.push("/")//allows user to go back to the homepage
     
     this.setRedirect(id);
 
