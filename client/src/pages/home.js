@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { getPosts } from '../utils/postapi';
 import { Redirect } from 'react-router-dom';
-import MakePost from '../components/makePost';
+import MakePost from './makePost';
 import Login from './login';
 
 class Home extends Component
 {
   state = {
+    redirect: false,
+    redirectID: "",
     postsList: []
   };
 
@@ -25,13 +27,27 @@ class Home extends Component
       .catch(err => console.log(err));
   };
 
+  setRedirect = (id) => {
+    this.setState({
+      redirect: true,
+      redirectID: id
+    })
+  }
+  renderRedirect = (id) => {
+    console.log("redirecting");
+    if (this.state.redirect) {
+      return <Redirect to={`/viewPost/${id}`} />
+    }
+  }
+
   handleSubmit(event, id)
   {//when clicked sends user to that posts page
     event.preventDefault();
     console.log("post id is " + id);
 
+    this.props.history.push("/")//allows user to go back to the homepage
 
-
+    this.setRedirect(id);
   }
 
   render()
@@ -44,10 +60,9 @@ class Home extends Component
       {this.renderRedirect(this.state.redirectID)}
 
         <h1>overworkshop</h1>
-      <Login />
-
 
         <Login />
+      
 
         <div className="container darkblue p-5">
 
@@ -77,7 +92,7 @@ class Home extends Component
                           <a href="#" className="card-link">{post.link}</a>
 
                           <form onSubmit={(e) => {this.handleSubmit(e, post.id)}}>
-                          <input id="submit" type="submit" value="submit" className="btn btn-success btn-lg" />
+                          <input id="submit" type="submit" value="view" className="btn btn-success btn-lg" />
                           </form>
 
                       </div>
