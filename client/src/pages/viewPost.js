@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getPost } from '../utils/postapi';
+import MakeComment from "../components/makecomment";
 
 var post;
 
@@ -61,7 +62,7 @@ class Post extends Component {
           
 
         </div>
-
+      <MakeComment />
       </React.Fragment>
 
     );
