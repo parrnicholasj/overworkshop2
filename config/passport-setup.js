@@ -1,7 +1,7 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20');
-const userControl = require('../controllers/user-controller');
-const axios = require('axios');
+// const userControl = require('../controllers/user-controller');
+// const axios = require('axios');
 const db = require('../models');
 
 passport.serializeUser((user, done) => {

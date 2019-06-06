@@ -1,13 +1,14 @@
-import React, { Component } from "react";
-import { getPosts } from "../utils/postapi";
-import { Redirect } from "react-router-dom";
-import MakePost from "../components/makePost";
+import React, { Component } from 'react';
+import { getPosts } from '../utils/postapi';
+import { Redirect } from 'react-router-dom';
+import MakePost from './makePost';
+import Login from './login';
 
 class Home extends Component {
   state = {
-    postsList: [],
     redirect: false,
-    redirectID: ""
+    redirectID: "",
+    postsList: []
   };
 
   componentDidMount() {
@@ -49,9 +50,14 @@ class Home extends Component {
     console.log(this.state.postsList);
     return (
       <React.Fragment>
-        {this.renderRedirect(this.state.redirectID)}
+
+{/* this must be in here to function */}
+      {this.renderRedirect(this.state.redirectID)}
 
         <h1>overworkshop</h1>
+
+        <Login />
+      
 
         <div className="container darkblue p-5">
           <div className="row match-my-cols">
