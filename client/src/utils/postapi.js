@@ -5,6 +5,11 @@ export const getPosts = () => {
   
 };
 
+export const getPostsPopular = () => {
+  return axios.get('/posts/getPostsPopular');
+  
+};
+
 export const getPost = (id) => {
   return axios.get(`/posts/getPost/${id}`);
   
