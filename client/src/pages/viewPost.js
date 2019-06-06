@@ -18,7 +18,7 @@ class Post extends Component {
   }
   
   handleViewPosts = (postId) => {
-    console.log(postId);
+    console.log(postId + "  post id");
     getPost(postId)
       .then(({ data }) => {
         
@@ -66,4 +66,5 @@ class Post extends Component {
     )
   }
 }
+
 export default Post;

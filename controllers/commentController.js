@@ -11,6 +11,10 @@ const addComment = (req, res) => {
 
   const author = req.user.email;
   const authorID = req.user.id;
+
+  console.log(author + "  author     " + 
+  authorID + "   authorId         commentcontroller")
+
   db.Comment.create({
     author,
     authorID,
