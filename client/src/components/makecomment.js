@@ -27,6 +27,8 @@ class MakeComment extends Component {
 //need to update this to work with images /4***************************************
 
 //*************************************************** */
+    
+    
 
     const comment = this.state.comment;
 

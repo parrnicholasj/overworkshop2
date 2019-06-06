@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import MakePost from './makePost';
 import Login from './login';
 
+
 class Home extends Component {
   state = {
     redirect: false,
@@ -54,9 +55,11 @@ class Home extends Component {
 {/* this must be in here to function */}
       {this.renderRedirect(this.state.redirectID)}
 
-        <h1>overworkshop</h1>
+      <h1 className="text-light display-4">Overworkshop</h1>
 
         <Login />
+       
+        <br />
       
 
         <div className="container darkblue p-5">
@@ -83,15 +86,16 @@ class Home extends Component {
                           </div>
 
                           <div className="col-11">
-                            <h5 className="card-title">
+                            <h5 className="card-title text-center">
                               {post.title}
-                              <span className="badge badge-info">
+                              <br/>
+                              <span className="badge badge-info text-center">
                                 {post.link}
                               </span>
                             </h5>
                             <hr />
-                            <p className="card-text">{shortDesc}</p>
-                            <p className="card-text">
+                            <p className="card-text text-center">{shortDesc}</p>
+                            <p className="card-text text-center">
                               <small className="text-muted">
                                 Last updated 3 mins ago
                               </small>

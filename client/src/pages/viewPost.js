@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { getPost } from '../utils/postapi';
 import MakeComment from "../components/makecomment";
+import MakePost from './makePost';
+
 
 var post;
 
 class Post extends Component {
   state = {
     postInfo: {},
-    id: 1
+    id: 1,
+    comments: ""
   };
   
   componentDidMount() {
@@ -32,6 +35,8 @@ class Post extends Component {
 
  
 
+ 
+
   render() {
     console.log(this.state.postInfo)
     post = this.state.postInfo
@@ -49,7 +54,8 @@ class Post extends Component {
           <h3>{post.desc}</h3>
           <h4>{post.score}</h4>
           <div className="img-responsive float-left">
-            <a >{post.screenshot}</a>
+          
+            <a>{post.screenshot}</a>
             </div>
             
        
@@ -62,7 +68,10 @@ class Post extends Component {
           
 
         </div>
-      <MakeComment />
+        <MakeComment />
+       
+        
+
       </React.Fragment>
 
     );
