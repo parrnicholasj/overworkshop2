@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { getPosts } from '../utils/postapi';
-import { Redirect } from 'react-router-dom'
-import MakePost from '../components/makePost';
+import { Redirect } from 'react-router-dom';
+import MakePost from './makePost';
+import Login from './login';
 
 class Home extends Component
 {
   state = {
-    postsList: [],
     redirect: false,
-    redirectID: ""
+    redirectID: "",
+    postsList: []
   };
 
   componentDidMount()
@@ -45,9 +46,8 @@ class Home extends Component
     console.log("post id is " + id);
 
     this.props.history.push("/")//allows user to go back to the homepage
-    
-    this.setRedirect(id);
 
+    this.setRedirect(id);
   }
 
   render()
@@ -56,9 +56,13 @@ class Home extends Component
     return (
       <React.Fragment>
 
+{/* this must be in here to function */}
       {this.renderRedirect(this.state.redirectID)}
 
         <h1>overworkshop</h1>
+
+        <Login />
+      
 
         <div className="container darkblue p-5">
 
@@ -74,7 +78,6 @@ class Home extends Component
                 }
                 return (
                   <>
-
                     <div id={post.id} className="card col-12 col-md-6 lightblue">
                       <div className="row">
 

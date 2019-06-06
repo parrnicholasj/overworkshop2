@@ -3,7 +3,7 @@
 
 
 // export const register = () => {
-//   return axios.get('/posts/getPosts');
+//   return axios.get('/auth/google');
 // };
 
 
