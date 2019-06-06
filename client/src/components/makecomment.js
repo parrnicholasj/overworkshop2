@@ -46,6 +46,7 @@ class MakeComment extends Component {
 render() {
   return (
     <React.Fragment>
+      <div className="container">
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label htmlFor="Comment">Comment</label>
@@ -54,6 +55,7 @@ render() {
         </div>
         <input id="submit" type="submit" value="submit" className="btn btn-success btn-lg"/>
       </form>
+      </div>
     </React.Fragment>
   );
 }
