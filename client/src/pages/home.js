@@ -21,7 +21,7 @@ class Home extends Component {
 
   handleChangeOrder = () =>
   {console.log("changing order");
-    if (this.state.order == "new")
+    if (this.state.order === "new")
     {
       this.setState({
         order: "popular"
@@ -35,7 +35,7 @@ class Home extends Component {
   }
 
   handleGetPosts = () => {
-    if (this.state.order == "new")
+    if (this.state.order === "new")
     {
       console.log("new");
     getPosts()
@@ -93,7 +93,8 @@ class Home extends Component {
       
 
         <div className="container darkblue px-5 pb-5">
-        <button className="btn btn-outline-light mx-2" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
+          <button className="btn btn-outline-light mx-2" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
+          
           <div className="row match-my-cols">
             {this.state.postsList.map(post => {
               var shortDesc = post.desc;

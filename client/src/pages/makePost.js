@@ -8,7 +8,8 @@ class MakePost extends Component {
       this.state = {
         title: '',
         desc: '',
-        link: ''
+        link: '',
+        screenshot: ""
       };
   
       this.handleChange = this.handleChange.bind(this);
@@ -33,7 +34,8 @@ class MakePost extends Component {
       const post = {
         title: this.state.title,
         link: this.state.link,
-        desc: this.state.desc
+        desc: this.state.desc,
+        screenshot:this.state.screenshot
       }
       console.log(JSON.stringify(post)  + "  add post")
 
@@ -78,12 +80,19 @@ class MakePost extends Component {
               />
             </div>
           </div>
+
+           <div className="form-group">
+           <label htmlFor="UploadPic">Example file input</label>
+            <input type="file" className="form-control-file" name="screenshot" id="screenshot" value={this.state.screenshot} onChange={this.handleChange}/>
+          </div>
+          
           <div className="form-group">
             <label htmlFor="Description">Description</label>
             <textarea className="form-control" id="desc" rows="3" value={this.state.desc} name="desc" 
               onChange={this.handleChange} />
           </div>
-          <input id="submit" type="submit" value="submit" className="btn btn-success btn-lg"/>
+          <input id="submit" type="submit" value="submit" className="btn btn-success btn-lg" />
+          
         </form>
       </React.Fragment>
     );
