@@ -15,6 +15,15 @@ export const getPost = (id) => {
   
 };
 
+export const upvotePost = (id) => {
+  console.log("upvoting" + id);
+  return axios.put(`/posts/upvotepost/${id}`)
+}
+
+export const downvotePost = (id) => {
+  return axios.put(`/posts/downvotepost/${id}`)
+}
+
 
 export const addPost = (post) => {
   console.log("yes hitting")
