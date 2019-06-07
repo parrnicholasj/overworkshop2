@@ -1,3 +1,5 @@
+var sequelize = require('sequelize');
+
 const db = require('../models');
 
 
@@ -35,7 +37,18 @@ const addPost = (req, res) => { //adds a post screenshots optional
 
 };
 const getPosts = (req, res) => {
-  db.Post.findAll({}) //this one is not being used currently
+  db.Post.findAll({order: sequelize.literal('id DESC')})
+    .then(dbPostData => {
+      res.json(dbPostData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.json(err);
+    });
+}
+
+const getPostsPopular = (req, res) => {
+  db.Post.findAll({order: [sequelize.literal('score DESC'), sequelize.literal('id DESC')]})
     .then(dbPostData => {
       res.json(dbPostData);
     })
@@ -109,6 +122,7 @@ console.log(req.body);
 }
 
 const upVotePost = (req, res) => {
+  console.log("updooting")
 
   var newScore;
   db.Post.findOne({where: {id : req.params.id}
@@ -155,6 +169,7 @@ const downVotePost = (req, res) => {
 module.exports = {
   addPost,
   getPosts,
+  getPostsPopular,
   getPostsByUser,
   getPost,
   deletePost,
