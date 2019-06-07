@@ -122,6 +122,7 @@ console.log(req.body);
 }
 
 const upVotePost = (req, res) => {
+  console.log("updooting")
 
   var newScore;
   db.Post.findOne({where: {id : req.params.id}
