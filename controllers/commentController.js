@@ -5,16 +5,17 @@ const addComment = (req, res) => {
   console.log("commentcontroller hitting")
 
   const {
-    content    
+    content,
+    PostId,
+    UserId    
   } = req.body;
   console.log("adding a comment")
 
-  const author = req.user.email;
-  const authorID = req.user.id;
+  
   db.Comment.create({
-    author,
-    authorID,
-    content
+    content,
+    PostId,
+    UserId
     }).then(dbCommentData => res.json(dbCommentData))
     .catch(err => {
       console.log(err);
