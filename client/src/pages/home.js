@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getPosts, getPostsPopular } from '../utils/postapi';
 import { Redirect } from 'react-router-dom';
 import MakePost from './makePost';
-import Login from './login';
+
 import NavBar from '../components/navBar';
 
 
@@ -82,22 +82,18 @@ class Home extends Component {
     return (
       <React.Fragment>
 
-{/* this must be in here to function */}
+       {/* this must be in here to function */}
       {this.renderRedirect(this.state.redirectID)}
 
-<<<<<<< HEAD
-      <h1 className="text-light display-4">Overworkshop</h1>
-=======
         <NavBar />
->>>>>>> 43e947b0314384fcf5afd13815d29fd80414df39
 
-        <Login />
        
         <br />
       
-      <button className="btn" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
+      
 
-        <div className="container darkblue p-5">
+        <div className="container darkblue px-5 pb-5">
+        <button className="btn btn-outline-light mx-2" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
           <div className="row match-my-cols">
             {this.state.postsList.map(post => {
               var shortDesc = post.desc;
@@ -114,23 +110,25 @@ class Home extends Component {
                         <div className="row">
                           <div className="col-1">
                             <nav className="nav flex-column">
-                              <a className="nav-link btn btn-success">Like</a>
+                              <a className="nav-link btn btn-outline-info">Like</a>
                               <a className="nav-link disabled">{post.score}</a>
-                              <a className="nav-link btn btn-danger">Dislike</a>
+                              <a className="nav-link btn btn-outline-dark">Dislike</a>
                             </nav>
                           </div>
+                          
 
                           <div className="col-11">
-                            <h5 className="card-title text-center">
+                            <h3 className="card-title text-center">
                               {post.title}
-                              <br/>
-                              <span className="badge badge-info text-center">
+                              </h3>
+                            
+                              <h4 className="badge badge-info d-flex justify-content-center">
                                 {post.link}
-                              </span>
-                            </h5>
-                            <hr />
+                              </h4>
+                            
+                           
                             <p className="card-text text-center">{shortDesc}</p>
-                            <p className="card-text text-center">
+                            <p className="card-text text-right">
                               <small className="text-muted">
                                 Last updated 3 mins ago
                               </small>
@@ -139,21 +137,29 @@ class Home extends Component {
                         </div>
                       </div>
                    
-
+                  
                   <form
                     onSubmit={e => {
                       this.handleSubmit(e, post.id);
                     }}
-                  >
+                      >
+                        <div className="row justify-content-end">
                     <input
                       id="submit"
                       type="submit"
                       value="View Post"
-                      className="btn btn-success btn-lg"
-                    />
-                  </form>
-                  </div>
-                  </div>
+                      className="btn btn-dark btn-sm"
+                          />
+                          
+                        
+                        
+                      
+                     
+                        </div>
+                        </form>
+                    </div>
+                    
+                    </div>
                 </>
               );
             })}

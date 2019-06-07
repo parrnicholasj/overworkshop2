@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { getPost } from '../utils/postapi';
 import MakeComment from "../components/makecomment";
-import MakePost from './makePost';
+import MakePost from './makePost'
+import NavBar from '../components/navBar';
 
 
 var post;
@@ -42,7 +43,8 @@ class Post extends Component {
     post = this.state.postInfo
     return (
       <React.Fragment>
-        <h1 className="text-light display-4">Overworkshop</h1>
+        
+        <NavBar />
 
         <div className="conatiner darkblue p-5">
           
