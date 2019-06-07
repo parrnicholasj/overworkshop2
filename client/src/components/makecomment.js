@@ -6,10 +6,17 @@ class MakeComment extends Component {
     super(props);
     this.state = {
       content: "",
+      postId: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+      postId: this.props.postId,
+    })
   }
 
   handleChange(event) {
@@ -21,10 +28,13 @@ class MakeComment extends Component {
     event.preventDefault();
     console.log("A comment was submitted: " + JSON.stringify(this.state));
 
+    console.log("post id in makecomment   " +   this.props.postId)
+
     const comment = {
       content: this.state.comment,
+      PostId: this.props.postId
     };
-    console.log(JSON.stringify(comment) + "  add comment");
+    console.log(JSON.stringify(comment) + "  All comment Details");
 
     addComment(comment)
       .then(postResponse => {

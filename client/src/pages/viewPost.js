@@ -60,7 +60,7 @@ class Post extends Component {
           
 
         </div>
-      <MakeComment />
+      <MakeComment  postId={this.state.id || undefined }/>
       </React.Fragment>
 
     )
