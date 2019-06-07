@@ -112,7 +112,7 @@ class Home extends Component {
               }
               return (
                 <>
-                  <div className="container mt-5">
+                  <div className="container mt-3">
                     <div className="card" id={post.id}>
                       <div className="card-body">
                         <div className="row">
@@ -152,7 +152,7 @@ class Home extends Component {
                       id="submit"
                       type="submit"
                       value="View Post"
-                      className="btn btn-success btn-lg"
+                      className="btn btn-success"
                     />
                   </form>
                   </div>
