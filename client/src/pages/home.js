@@ -1,27 +1,57 @@
 import React, { Component } from 'react';
-import { getPosts } from '../utils/postapi';
+import { getPosts, getPostsPopular } from '../utils/postapi';
 import { Redirect } from 'react-router-dom';
 import MakePost from './makePost';
 import Login from './login';
+import NavBar from '../components/navBar';
 
 
 class Home extends Component {
   state = {
     redirect: false,
     redirectID: "",
-    postsList: []
+    postsList: [],
+    order: "new"
   };
 
   componentDidMount() {
+    
+    this.handleGetPosts();
+  }
+
+  handleChangeOrder = () =>
+  {console.log("changing order");
+    if (this.state.order == "new")
+    {
+      this.setState({
+        order: "popular"
+      })
+    }else{
+      this.setState({
+        order: "new"
+      })
+    }
     this.handleGetPosts();
   }
 
   handleGetPosts = () => {
+    if (this.state.order == "new")
+    {
+      console.log("new");
     getPosts()
       .then(({ data: postsList }) => {
         this.setState({ postsList });
       })
       .catch(err => console.log(err));
+    }else{
+      console.log("popular");
+      getPostsPopular()
+      .then(({ data: postsList }) => {
+        this.setState({ postsList });
+      })
+      .catch(err => console.log(err));
+    }
+    this.forceUpdate();
   };
 
   setRedirect = id => {
@@ -55,12 +85,17 @@ class Home extends Component {
 {/* this must be in here to function */}
       {this.renderRedirect(this.state.redirectID)}
 
+<<<<<<< HEAD
       <h1 className="text-light display-4">Overworkshop</h1>
+=======
+        <NavBar />
+>>>>>>> 43e947b0314384fcf5afd13815d29fd80414df39
 
         <Login />
        
         <br />
       
+      <button className="btn" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
 
         <div className="container darkblue p-5">
           <div className="row match-my-cols">
