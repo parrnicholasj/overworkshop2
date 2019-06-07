@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getPosts, getPostsPopular } from '../utils/postapi';
+import { getPosts, getPostsPopular, upvotePost, downvotePost } from '../utils/postapi';
 import { Redirect } from 'react-router-dom';
 import MakePost from './makePost';
 import Login from './login';
@@ -20,7 +20,7 @@ class Home extends Component {
 
   handleChangeOrder = () =>
   {console.log("changing order");
-    if (this.state.order == "new")
+    if (this.state.order === "new")
     {
       this.setState({
         order: "popular"
@@ -34,7 +34,7 @@ class Home extends Component {
   }
 
   handleGetPosts = () => {
-    if (this.state.order == "new")
+    if (this.state.order === "new")
     {
       console.log("new");
     getPosts()
@@ -65,6 +65,17 @@ class Home extends Component {
       return <Redirect to={`/viewPost/${id}`} />;
     }
   };
+
+  clickUpvote (event, id) {
+    event.preventDefault();
+    console.log("click" + id);
+    upvotePost(id).catch(err => console.log(err));
+  }
+
+  clickDownvote (event, id) {
+    event.preventDefault();
+    downvotePost(id).catch(err => console.log(err));
+  }
 
   handleSubmit(event, id) {
     //when clicked sends user to that posts page
@@ -107,9 +118,9 @@ class Home extends Component {
                         <div className="row">
                           <div className="col-1">
                             <nav className="nav flex-column">
-                              <a className="nav-link btn btn-success">Like</a>
+                              <a className="nav-link btn btn-success" onClick={(e) => {this.clickUpvote(e, post.id)}}>Like</a>
                               <a className="nav-link disabled">{post.score}</a>
-                              <a className="nav-link btn btn-danger">Dislike</a>
+                              <a className="nav-link btn btn-danger" onClick={(e) => {this.clickDownvote(e, post.id)}}>Dislike</a>
                             </nav>
                           </div>
 

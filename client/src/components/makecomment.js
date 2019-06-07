@@ -32,7 +32,7 @@ class MakeComment extends Component {
 
     const comment = {
       content: this.state.comment,
-      PostId: this.props.postId
+      PostId: this.state.postId
     };
     console.log(JSON.stringify(comment) + "  All comment Details");
 
