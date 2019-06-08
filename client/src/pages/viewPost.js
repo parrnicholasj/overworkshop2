@@ -18,7 +18,7 @@ class Post extends Component {
   }
   
   handleViewPosts = (postId) => {
-    console.log(postId);
+    console.log(postId + "  post id");
     getPost(postId)
       .then(({ data }) => {
         
@@ -60,10 +60,11 @@ class Post extends Component {
           
 
         </div>
-      <MakeComment />
+      <MakeComment  postId={this.state.id || undefined }/>
       </React.Fragment>
 
     )
   }
 }
+
 export default Post;
