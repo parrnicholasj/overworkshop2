@@ -159,27 +159,16 @@ class Home extends Component
                                 Last updated 3 mins ago
                               </small>
                             </p>
-                      <button className="btn btn-success btn-lg test" onClick={(e) =>
-                      {
-                        this.handleSubmit(e, post.id)
-                      }}>View Post</button>
+                            <button className="btn btn-success btn-lg test" onClick={(e) =>
+                            {
+                              this.handleSubmit(e, post.id)
+                            }}>View Post</button>
                           </div>
                         </div>
                       </div>
 
 
-                      {/* <form
-                    onSubmit={e => {
-                      this.handleSubmit(e, post.id);
-                    }}
-                  >
-                    <input
-                      id="submit"
-                      type="submit"
-                      value="View Post"
-                      className="btn btn-success btn-lg"
-                    />
-                  </form> */}
+
                     </div>
                   </div>
                 </>
