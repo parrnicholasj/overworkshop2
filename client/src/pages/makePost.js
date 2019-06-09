@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { addPost } from '../utils/postapi';
+import logo from '../components/logo.svg';
 
 class MakePost extends Component {
 
@@ -9,13 +10,17 @@ class MakePost extends Component {
         title: '',
         desc: '',
         link: '',
-        screenshot: ""
+        
       };
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
-  
+    
+    // Uploading images 
+    fileSelectedHandler = event => {
+      console.log(event.target.files[0]);
+      }
   
     handleChange(event) {
       const { name, value } = event.target;
@@ -27,15 +32,13 @@ class MakePost extends Component {
       console.log('A name was submitted: ' + JSON.stringify(this.state));
       alert('A name was submitted: ' + JSON.stringify(this.state));
 
-//need to update this to work with images /4***************************************
 
-//*************************************************** */
 
       const post = {
         title: this.state.title,
         link: this.state.link,
         desc: this.state.desc,
-        screenshot:this.state.screenshot
+        
       }
       console.log(JSON.stringify(post)  + "  add post")
 
@@ -53,6 +56,7 @@ class MakePost extends Component {
   render() {
     return (
       <React.Fragment>
+        
         <form onSubmit={this.handleSubmit}>
           <div className="form-row">
             <div className="form-group col-md-6">
@@ -81,17 +85,21 @@ class MakePost extends Component {
             </div>
           </div>
 
-           <div className="form-group">
+           {/* <div className="form-group">
            <label htmlFor="UploadPic">Example file input</label>
             <input type="file" className="form-control-file" name="screenshot" id="screenshot" value={this.state.screenshot} onChange={this.handleChange}/>
-          </div>
+          </div> */}
+
+            <input type="file" onChange={this.fileSelectedHandler} />
+
+
           
           <div className="form-group">
             <label htmlFor="Description">Description</label>
             <textarea className="form-control" id="desc" rows="3" value={this.state.desc} name="desc" 
               onChange={this.handleChange} />
           </div>
-          <input id="submit" type="submit" value="submit" className="btn btn-success btn-lg" />
+          <input id="submit" type="submit" value="submit" className="btn btn-outline-success btn-sm" />
           
         </form>
       </React.Fragment>

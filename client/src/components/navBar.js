@@ -12,7 +12,7 @@ class NavBar extends Component
         
         
         <a href="/">
-          <h1 className="display-4 text-light darkblue py-3 m-3 pl-4">Overworkshop <Login /></h1>
+          <h1 className="display-4 text-light bg-transparent py-3 m-3 pl-4">Overworkshop <Login /></h1>
          
         </a>
        

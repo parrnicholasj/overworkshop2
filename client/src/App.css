@@ -9,6 +9,7 @@
 }
 
 .App-header {
+  
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -48,8 +49,17 @@
   background-color: black;
 }
 
+.home-card {
+  opacity: 0.9;
+}
+
+.viewpost-card {
+  opacity: 0.9;
+}
+
 #navHead
 {
+  
   
 }
 

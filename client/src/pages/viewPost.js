@@ -39,24 +39,33 @@ class Post extends Component {
       <React.Fragment>
         <NavBar />
 
-        <div className="conatiner darkblue m-5 p-3">
+        <div className="conatiner bg-trasnparent m-5 p-3">
 
-          <div className="row justify-content-between p-4">
-            <h1 className="text-info">{post.score}</h1>
+          {/* <div className="row justify-content-between p-4"> */}
+          {/* <h1><span className="badge badge-success">{post.score}</span></h1> */}
 
-            <h3><span className="badge badge-info">{post.link}</span></h3> 
+            {/* <h3><span className="badge badge-success">{post.link}</span></h3>  */}
             
-          </div>
-            <div className="card w-75 mx-auto">
+          {/* </div> */}
+            <div className="card viewpost-card w-75 mx-auto">
           <div className="card-body">
+            <div className="row justify-content-between p-4">
+            <h3><span className="badge badge-success">{post.score}</span></h3>
             <h3 className="card-title text-center">
             {post.title}
               </h3>
+                <h3><span className="badge badge-success">{post.link}</span></h3> 
+                </div>
               <hr />
-              <p className="text-center">{post.desc}</p>
-              <input  type="image" src={post.screenshot} alt="" />
+              <div className="row justify-content-between p-4">
 
-              <img src={post.screenshot}/>
+              <p className="text-center m-3">{post.desc}</p>
+                
+                  <img src={post.screenshot} alt="" />
+                  
+                
+
+              </div>
             </div>
             </div>
           

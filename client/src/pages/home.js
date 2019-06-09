@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getPosts, getPostsPopular, upvotePost, downvotePost } from '../utils/postapi';
 import { Redirect } from 'react-router-dom';
 import MakePost from './makePost';
-
+import Modal from '../components/modal'
 import NavBar from '../components/navBar';
 
 
@@ -88,6 +88,13 @@ class Home extends Component {
     this.setRedirect(id);
   }
 
+  showModal = () => {
+    this.setState({
+      ...this.state,
+      show: !this.state.show
+    })
+  }
+
   render() {
     console.log(this.state.postsList);
     return (
@@ -103,8 +110,27 @@ class Home extends Component {
       
       
 
-        <div className="container darkblue px-5 pb-5">
+        <div className="container bg-transparent px-5 pb-5">
           <button className="btn btn-outline-light mx-2" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
+          
+          <input type="button" className="btn btn-light" onClick={this.showModal} value="Add Comment" />
+
+          <Modal show={this.state.show}
+              onClose={this.showModal}>
+              <MakePost />
+            
+          </Modal>
+          
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br/>
+          
           
           <div className="row match-my-cols">
             {this.state.postsList.map(post => {
@@ -117,20 +143,14 @@ class Home extends Component {
               return (
                 <>
                   <div className="container mt-5">
-                    <div className="card" id={post.id}>
+                    <div className="card home-card" id={post.id}>
                       <div className="card-body">
                         <div className="row">
                           <div className="col-1">
                             <nav className="nav flex-column">
-<<<<<<< HEAD
-                              <a className="nav-link btn btn-outline-info">Like</a>
+                              <a className="nav-link btn btn-outline-success" onClick={(e) => {this.clickUpvote(e, post.id)}}>Like</a>
                               <a className="nav-link disabled">{post.score}</a>
-                              <a className="nav-link btn btn-outline-dark">Dislike</a>
-=======
-                              <a className="nav-link btn btn-success" onClick={(e) => {this.clickUpvote(e, post.id)}}>Like</a>
-                              <a className="nav-link disabled">{post.score}</a>
-                              <a className="nav-link btn btn-danger" onClick={(e) => {this.clickDownvote(e, post.id)}}>Dislike</a>
->>>>>>> dde7a0bdb1ffd671d272b7f5748740e2ee63ec2f
+                              <a className="nav-link btn btn-outline-dark" onClick={(e) => {this.clickDownvote(e, post.id)}}>Dislike</a>
                             </nav>
                           </div>
                           
@@ -140,7 +160,7 @@ class Home extends Component {
                               {post.title}
                               </h3>
                             
-                              <h4 className="badge badge-info d-flex justify-content-center">
+                              <h4 className="badge badge-success d-flex justify-content-center">
                                 {post.link}
                               </h4>
                             
@@ -184,7 +204,7 @@ class Home extends Component {
           </div>
         </div>
 
-        <MakePost />
+        {/* <MakePost /> */}
       </React.Fragment>
     );
   }

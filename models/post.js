@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true,
       defaultValue:
-        'https://www.sccpre.cat/png/big/0/8839_overwatch-logo-png.png',
+        'https://images-na.ssl-images-amazon.com/images/I/211MfUO4m2L.jpg',
       validate: {
         isUrl: true
       }
