@@ -5,13 +5,9 @@ import MakePost from './makePost';
 import Modal from '../components/modal'
 import NavBar from '../components/navBar';
 
-<<<<<<< HEAD
+
 
 class Home extends Component {
-=======
-class Home extends Component
-{
->>>>>>> f8917fc5157df46feedc6057b544b491036eebe8
   state = {
     redirect: false,
     redirectID: "",
@@ -110,7 +106,6 @@ class Home extends Component
     this.setRedirect(id);
   }
 
-<<<<<<< HEAD
   showModal = () => {
     this.setState({
       ...this.state,
@@ -119,34 +114,18 @@ class Home extends Component
   }
 
   render() {
-=======
-  render()
-  {
->>>>>>> f8917fc5157df46feedc6057b544b491036eebe8
     console.log(this.state.postsList);
     return (
       <React.Fragment>
 
-<<<<<<< HEAD
-       {/* this must be in here to function */}
-      {this.renderRedirect(this.state.redirectID)}
-
-        <NavBar />
-
-       
-        <br />
-      
-      
-=======
         {/* this must be in here to function */}
         {this.renderRedirect(this.state.redirectID)}
 
         <NavBar />
 
-        <Login />
+        
 
-        <button className="btn" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
->>>>>>> f8917fc5157df46feedc6057b544b491036eebe8
+      
 
         <div className="container bg-transparent px-5 pb-5">
           <button className="btn btn-outline-light mx-2" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
@@ -182,26 +161,15 @@ class Home extends Component
               }
               return (
                 <>
-<<<<<<< HEAD
                   <div className="container mt-5">
                     <div className="card home-card" id={post.id}>
-=======
-                  <div className="container mt-3">
-                    <div className="card" id={post.id}>
->>>>>>> f8917fc5157df46feedc6057b544b491036eebe8
                       <div className="card-body">
                         <div className="row">
                           <div className="col-1">
                             <nav className="nav flex-column">
-<<<<<<< HEAD
                               <a className="nav-link btn btn-outline-success" onClick={(e) => {this.clickUpvote(e, post.id)}}>Like</a>
                               <a className="nav-link disabled">{post.score}</a>
                               <a className="nav-link btn btn-outline-dark" onClick={(e) => {this.clickDownvote(e, post.id)}}>Dislike</a>
-=======
-                              <a className="nav-link btn btn-success" onClick={(e) => { this.clickUpvote(e, post.id) }}>Like</a>
-                              <a className="nav-link disabled">{post.score}</a>
-                              <a className="nav-link btn btn-danger" onClick={(e) => { this.clickDownvote(e, post.id) }}>Dislike</a>
->>>>>>> f8917fc5157df46feedc6057b544b491036eebe8
                             </nav>
                           </div>
                           
@@ -229,10 +197,9 @@ class Home extends Component
                           </div>
                         </div>
                       </div>
-<<<<<<< HEAD
                    
                   
-                  <form
+                  {/* <form
                     onSubmit={e => {
                       this.handleSubmit(e, post.id);
                     }}
@@ -250,17 +217,10 @@ class Home extends Component
                       
                      
                         </div>
-                        </form>
+                        </form> */}
                     </div>
                     
                     </div>
-=======
-
-
-
-                    </div>
-                  </div>
->>>>>>> f8917fc5157df46feedc6057b544b491036eebe8
                 </>
               );
             })}

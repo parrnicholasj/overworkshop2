@@ -76,18 +76,9 @@ class Post extends Component {
 
           
         </div>
-<<<<<<< HEAD
-        <MakeComment />
-=======
       <MakeComment  postId={this.state.id || undefined }/>
->>>>>>> f8917fc5157df46feedc6057b544b491036eebe8
       </React.Fragment>
     );
   }
 }
-<<<<<<< HEAD
 export default Post;
-=======
-
-export default Post;
->>>>>>> f8917fc5157df46feedc6057b544b491036eebe8

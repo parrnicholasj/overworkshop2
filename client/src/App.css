@@ -49,7 +49,6 @@
   background-color: black;
 }
 
-<<<<<<< HEAD
 .home-card {
   opacity: 0.9;
 }
@@ -58,16 +57,15 @@
   opacity: 0.9;
 }
 
-#navHead
+/* #navHead
 {
+} */
   
   
-=======
-.test
+/* .test
 {
 cursor: pointer;
->>>>>>> f8917fc5157df46feedc6057b544b491036eebe8
-}
+} */
 
 /* just yeet the bastard to the bottom */
 .row.match-my-cols 

@@ -30,21 +30,11 @@ class MakeComment extends Component {
 
     console.log("post id in makecomment   " +   this.props.postId)
 
-<<<<<<< HEAD
-//*************************************************** */
-    
-    
-
-    const comment = this.state.comment;
-
-    console.log(JSON.stringify(comment)  + "  add comment")
-=======
     const comment = {
       content: this.state.comment,
       PostId: this.state.postId
     };
     console.log(JSON.stringify(comment) + "  All comment Details");
->>>>>>> f8917fc5157df46feedc6057b544b491036eebe8
 
     addComment(comment)
       .then(postResponse => {
