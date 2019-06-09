@@ -5,8 +5,13 @@ import MakePost from './makePost';
 import Modal from '../components/modal'
 import NavBar from '../components/navBar';
 
+<<<<<<< HEAD
 
 class Home extends Component {
+=======
+class Home extends Component
+{
+>>>>>>> f8917fc5157df46feedc6057b544b491036eebe8
   state = {
     redirect: false,
     redirectID: "",
@@ -14,19 +19,22 @@ class Home extends Component {
     order: "new"
   };
 
-  componentDidMount() {
-    
+  componentDidMount()
+  {
+
     this.handleGetPosts();
   }
 
   handleChangeOrder = () =>
-  {console.log("changing order");
+  {
+    console.log("changing order");
     if (this.state.order === "new")
     {
       this.setState({
         order: "popular"
       })
-    }else{
+    } else
+    {
       this.setState({
         order: "new"
       })
@@ -34,51 +42,65 @@ class Home extends Component {
     this.handleGetPosts();
   }
 
-  handleGetPosts = () => {
+  handleGetPosts = () =>
+  {
     if (this.state.order === "new")
     {
       console.log("new");
-    getPosts()
-      .then(({ data: postsList }) => {
-        this.setState({ postsList });
-      })
-      .catch(err => console.log(err));
-    }else{
+      getPosts()
+        .then(({ data: postsList }) =>
+        {
+          this.setState({ postsList });
+        })
+        .catch(err => console.log(err));
+    } else
+    {
       console.log("popular");
       getPostsPopular()
-      .then(({ data: postsList }) => {
-        this.setState({ postsList });
-      })
-      .catch(err => console.log(err));
+        .then(({ data: postsList }) =>
+        {
+          this.setState({ postsList });
+        })
+        .catch(err => console.log(err));
     }
     this.forceUpdate();
   };
 
-  setRedirect = id => {
+  setRedirect = id =>
+  {
     this.setState({
       redirect: true,
       redirectID: id
     });
   };
-  renderRedirect = id => {
+  renderRedirect = id =>
+  {
     console.log("redirecting");
-    if (this.state.redirect) {
+    if (this.state.redirect)
+    {
       return <Redirect to={`/viewPost/${id}`} />;
     }
   };
 
-  clickUpvote (event, id) {
+  clickUpvote(event, id)
+  {
     event.preventDefault();
     console.log("click" + id);
-    upvotePost(id).catch(err => console.log(err));
+    upvotePost(id)
+      .then(this.handleGetPosts())
+      .catch(err => console.log(err));
   }
 
-  clickDownvote (event, id) {
+  clickDownvote(event, id)
+  {
     event.preventDefault();
-    downvotePost(id).catch(err => console.log(err));
+    downvotePost(id)
+      .then(this.handleGetPosts())
+      .catch(err => console.log(err));
   }
 
-  handleSubmit(event, id) {
+  handleSubmit(event, id)
+  {
     //when clicked sends user to that posts page
     event.preventDefault();
     console.log("post id is " + id);
@@ -88,6 +110,7 @@ class Home extends Component {
     this.setRedirect(id);
   }
 
+<<<<<<< HEAD
   showModal = () => {
     this.setState({
       ...this.state,
@@ -96,10 +119,15 @@ class Home extends Component {
   }
 
   render() {
+=======
+  render()
+  {
+>>>>>>> f8917fc5157df46feedc6057b544b491036eebe8
     console.log(this.state.postsList);
     return (
       <React.Fragment>
 
+<<<<<<< HEAD
        {/* this must be in here to function */}
       {this.renderRedirect(this.state.redirectID)}
 
@@ -109,6 +137,16 @@ class Home extends Component {
         <br />
       
       
+=======
+        {/* this must be in here to function */}
+        {this.renderRedirect(this.state.redirectID)}
+
+        <NavBar />
+
+        <Login />
+
+        <button className="btn" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
+>>>>>>> f8917fc5157df46feedc6057b544b491036eebe8
 
         <div className="container bg-transparent px-5 pb-5">
           <button className="btn btn-outline-light mx-2" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
@@ -133,24 +171,37 @@ class Home extends Component {
           
           
           <div className="row match-my-cols">
-            {this.state.postsList.map(post => {
+            {this.state.postsList.map(post =>
+            {
               var shortDesc = post.desc;
-              if (shortDesc.length > 255) {
+              if (shortDesc.length > 255)
+              {
                 shortDesc = shortDesc
                   .slice(0, 255)
                   .concat(" ... click for more"); //so shit does not get to long
               }
               return (
                 <>
+<<<<<<< HEAD
                   <div className="container mt-5">
                     <div className="card home-card" id={post.id}>
+=======
+                  <div className="container mt-3">
+                    <div className="card" id={post.id}>
+>>>>>>> f8917fc5157df46feedc6057b544b491036eebe8
                       <div className="card-body">
                         <div className="row">
                           <div className="col-1">
                             <nav className="nav flex-column">
+<<<<<<< HEAD
                               <a className="nav-link btn btn-outline-success" onClick={(e) => {this.clickUpvote(e, post.id)}}>Like</a>
                               <a className="nav-link disabled">{post.score}</a>
                               <a className="nav-link btn btn-outline-dark" onClick={(e) => {this.clickDownvote(e, post.id)}}>Dislike</a>
+=======
+                              <a className="nav-link btn btn-success" onClick={(e) => { this.clickUpvote(e, post.id) }}>Like</a>
+                              <a className="nav-link disabled">{post.score}</a>
+                              <a className="nav-link btn btn-danger" onClick={(e) => { this.clickDownvote(e, post.id) }}>Dislike</a>
+>>>>>>> f8917fc5157df46feedc6057b544b491036eebe8
                             </nav>
                           </div>
                           
@@ -171,9 +222,14 @@ class Home extends Component {
                                 Last updated 3 mins ago
                               </small>
                             </p>
+                            <button className="btn btn-success btn-lg test" onClick={(e) =>
+                            {
+                              this.handleSubmit(e, post.id)
+                            }}>View Post</button>
                           </div>
                         </div>
                       </div>
+<<<<<<< HEAD
                    
                   
                   <form
@@ -198,6 +254,13 @@ class Home extends Component {
                     </div>
                     
                     </div>
+=======
+
+
+
+                    </div>
+                  </div>
+>>>>>>> f8917fc5157df46feedc6057b544b491036eebe8
                 </>
               );
             })}
