@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { getPosts, getPostsPopular, upvotePost, downvotePost } from '../utils/postapi';
 import { Redirect } from 'react-router-dom';
 import MakePost from './makePost';
-import Login from './login';
+import Modal from '../components/modal'
 import NavBar from '../components/navBar';
 
-class Home extends Component
-{
+
+
+class Home extends Component {
   state = {
     redirect: false,
     redirectID: "",
@@ -105,8 +106,14 @@ class Home extends Component
     this.setRedirect(id);
   }
 
-  render()
-  {
+  showModal = () => {
+    this.setState({
+      ...this.state,
+      show: !this.state.show
+    })
+  }
+
+  render() {
     console.log(this.state.postsList);
     return (
       <React.Fragment>
@@ -116,11 +123,32 @@ class Home extends Component
 
         <NavBar />
 
-        <Login />
+        
 
-        <button className="btn" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
+      
 
-        <div className="container darkblue p-5">
+        <div className="container bg-transparent px-5 pb-5">
+          <button className="btn btn-outline-light mx-2" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
+          
+          <input type="button" className="btn btn-light" onClick={this.showModal} value="Add Comment" />
+
+          <Modal show={this.state.show}
+              onClose={this.showModal}>
+              <MakePost />
+            
+          </Modal>
+          
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br/>
+          
+          
           <div className="row match-my-cols">
             {this.state.postsList.map(post =>
             {
@@ -133,28 +161,31 @@ class Home extends Component
               }
               return (
                 <>
-                  <div className="container mt-3">
-                    <div className="card" id={post.id}>
+                  <div className="container mt-5">
+                    <div className="card home-card" id={post.id}>
                       <div className="card-body">
                         <div className="row">
                           <div className="col-1">
                             <nav className="nav flex-column">
-                              <a className="nav-link btn btn-success" onClick={(e) => { this.clickUpvote(e, post.id) }}>Like</a>
+                              <a className="nav-link btn btn-outline-success" onClick={(e) => {this.clickUpvote(e, post.id)}}>Like</a>
                               <a className="nav-link disabled">{post.score}</a>
-                              <a className="nav-link btn btn-danger" onClick={(e) => { this.clickDownvote(e, post.id) }}>Dislike</a>
+                              <a className="nav-link btn btn-outline-dark" onClick={(e) => {this.clickDownvote(e, post.id)}}>Dislike</a>
                             </nav>
                           </div>
+                          
 
                           <div className="col-11">
-                            <h5 className="card-title">
+                            <h3 className="card-title text-center">
                               {post.title}
-                              <span className="badge badge-info">
+                              </h3>
+                            
+                              <h4 className="badge badge-success d-flex justify-content-center">
                                 {post.link}
-                              </span>
-                            </h5>
-                            <hr />
-                            <p className="card-text">{shortDesc}</p>
-                            <p className="card-text">
+                              </h4>
+                            
+                           
+                            <p className="card-text text-center">{shortDesc}</p>
+                            <p className="card-text text-right">
                               <small className="text-muted">
                                 Last updated 3 mins ago
                               </small>
@@ -166,18 +197,37 @@ class Home extends Component
                           </div>
                         </div>
                       </div>
-
-
-
+                   
+                  
+                  {/* <form
+                    onSubmit={e => {
+                      this.handleSubmit(e, post.id);
+                    }}
+                      >
+                        <div className="row justify-content-end">
+                    <input
+                      id="submit"
+                      type="submit"
+                      value="View Post"
+                      className="btn btn-dark btn-sm"
+                          />
+                          
+                        
+                        
+                      
+                     
+                        </div>
+                        </form> */}
                     </div>
-                  </div>
+                    
+                    </div>
                 </>
               );
             })}
           </div>
         </div>
 
-        <MakePost />
+        {/* <MakePost /> */}
       </React.Fragment>
     );
   }
