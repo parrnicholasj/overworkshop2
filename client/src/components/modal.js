@@ -36,7 +36,7 @@ class Modal extends React.Component {
     }
     return (
       <React.Fragment>
-
+        
         <div style={backdropStyle}>
           <div style={modalStyle}>
             <div className="btn btn-success btn-sm" onClick={(e) => { this.onClose(e) }}>
@@ -45,11 +45,11 @@ class Modal extends React.Component {
         {this.props.children}
         
         
-          
+        </div>
           
         </div>
 
-        </div>
+        
         
         
         
