@@ -5,7 +5,8 @@ import MakePost from './makePost';
 import Login from './login';
 import NavBar from '../components/navBar';
 
-class Home extends Component {
+class Home extends Component
+{
   state = {
     redirect: false,
     redirectID: "",
@@ -13,19 +14,22 @@ class Home extends Component {
     order: "new"
   };
 
-  componentDidMount() {
-    
+  componentDidMount()
+  {
+
     this.handleGetPosts();
   }
 
   handleChangeOrder = () =>
-  {console.log("changing order");
+  {
+    console.log("changing order");
     if (this.state.order === "new")
     {
       this.setState({
         order: "popular"
       })
-    }else{
+    } else
+    {
       this.setState({
         order: "new"
       })
@@ -33,51 +37,65 @@ class Home extends Component {
     this.handleGetPosts();
   }
 
-  handleGetPosts = () => {
+  handleGetPosts = () =>
+  {
     if (this.state.order === "new")
     {
       console.log("new");
-    getPosts()
-      .then(({ data: postsList }) => {
-        this.setState({ postsList });
-      })
-      .catch(err => console.log(err));
-    }else{
+      getPosts()
+        .then(({ data: postsList }) =>
+        {
+          this.setState({ postsList });
+        })
+        .catch(err => console.log(err));
+    } else
+    {
       console.log("popular");
       getPostsPopular()
-      .then(({ data: postsList }) => {
-        this.setState({ postsList });
-      })
-      .catch(err => console.log(err));
+        .then(({ data: postsList }) =>
+        {
+          this.setState({ postsList });
+        })
+        .catch(err => console.log(err));
     }
     this.forceUpdate();
   };
 
-  setRedirect = id => {
+  setRedirect = id =>
+  {
     this.setState({
       redirect: true,
       redirectID: id
     });
   };
-  renderRedirect = id => {
+  renderRedirect = id =>
+  {
     console.log("redirecting");
-    if (this.state.redirect) {
+    if (this.state.redirect)
+    {
       return <Redirect to={`/viewPost/${id}`} />;
     }
   };
 
-  clickUpvote (event, id) {
+  clickUpvote(event, id)
+  {
     event.preventDefault();
     console.log("click" + id);
-    upvotePost(id).catch(err => console.log(err));
+    upvotePost(id)
+      .then(this.handleGetPosts())
+      .catch(err => console.log(err));
   }
 
-  clickDownvote (event, id) {
+  clickDownvote(event, id)
+  {
     event.preventDefault();
-    downvotePost(id).catch(err => console.log(err));
+    downvotePost(id)
+      .then(this.handleGetPosts())
+      .catch(err => console.log(err));
   }
 
-  handleSubmit(event, id) {
+  handleSubmit(event, id)
+  {
     //when clicked sends user to that posts page
     event.preventDefault();
     console.log("post id is " + id);
@@ -87,25 +105,28 @@ class Home extends Component {
     this.setRedirect(id);
   }
 
-  render() {
+  render()
+  {
     console.log(this.state.postsList);
     return (
       <React.Fragment>
 
-{/* this must be in here to function */}
-      {this.renderRedirect(this.state.redirectID)}
+        {/* this must be in here to function */}
+        {this.renderRedirect(this.state.redirectID)}
 
         <NavBar />
 
         <Login />
-      
-      <button className="btn" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
+
+        <button className="btn" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
 
         <div className="container darkblue p-5">
           <div className="row match-my-cols">
-            {this.state.postsList.map(post => {
+            {this.state.postsList.map(post =>
+            {
               var shortDesc = post.desc;
-              if (shortDesc.length > 255) {
+              if (shortDesc.length > 255)
+              {
                 shortDesc = shortDesc
                   .slice(0, 255)
                   .concat(" ... click for more"); //so shit does not get to long
@@ -118,9 +139,9 @@ class Home extends Component {
                         <div className="row">
                           <div className="col-1">
                             <nav className="nav flex-column">
-                              <a className="nav-link btn btn-success" onClick={(e) => {this.clickUpvote(e, post.id)}}>Like</a>
+                              <a className="nav-link btn btn-success" onClick={(e) => { this.clickUpvote(e, post.id) }}>Like</a>
                               <a className="nav-link disabled">{post.score}</a>
-                              <a className="nav-link btn btn-danger" onClick={(e) => {this.clickDownvote(e, post.id)}}>Dislike</a>
+                              <a className="nav-link btn btn-danger" onClick={(e) => { this.clickDownvote(e, post.id) }}>Dislike</a>
                             </nav>
                           </div>
 
@@ -138,24 +159,17 @@ class Home extends Component {
                                 Last updated 3 mins ago
                               </small>
                             </p>
+                            <button className="btn btn-success btn-lg test" onClick={(e) =>
+                            {
+                              this.handleSubmit(e, post.id)
+                            }}>View Post</button>
                           </div>
                         </div>
                       </div>
-                   
 
-                  <form
-                    onSubmit={e => {
-                      this.handleSubmit(e, post.id);
-                    }}
-                  >
-                    <input
-                      id="submit"
-                      type="submit"
-                      value="View Post"
-                      className="btn btn-success"
-                    />
-                  </form>
-                  </div>
+
+
+                    </div>
                   </div>
                 </>
               );

@@ -48,9 +48,9 @@
   background-color: black;
 }
 
-#navHead
+.test
 {
-  
+cursor: pointer;
 }
 
 /* just yeet the bastard to the bottom */
