@@ -133,7 +133,7 @@ class Home extends Component
               }
               return (
                 <>
-                  <div className="container mt-5">
+                  <div className="container mt-3">
                     <div className="card" id={post.id}>
                       <div className="card-body">
                         <div className="row">

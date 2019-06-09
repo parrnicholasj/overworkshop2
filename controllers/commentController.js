@@ -3,15 +3,12 @@ const db = require('../models');
 const addComment = (req, res) => {
   console.log(req.body);
   console.log("commentcontroller hitting")
-
   const {
     content,
     PostId,
-    UserId    
+    UserId = req.user.id
   } = req.body;
   console.log("adding a comment")
-
-  
   db.Comment.create({
     content,
     PostId,
@@ -21,8 +18,7 @@ const addComment = (req, res) => {
       console.log(err);
       res.json(err);
     });
-
-};
+ }; 
 
 const getComments = (req, res) => {
   db.Comment.findAll({}) 
