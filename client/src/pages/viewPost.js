@@ -3,14 +3,18 @@ import { getPost } from '../utils/postapi';
 import MakeComment from '../components/makecomment';
 import MakePost from './makePost';
 import NavBar from '../components/navBar';
+<<<<<<< HEAD
 import { upvotePost, downvotePost } from '../utils/postapi';
+=======
+import ViewComments from '../components/viewcomments';
+>>>>>>> 916c3edb97d887c82d955c9006d46a3d5eeda260
 
 var post;
 
 class Post extends Component {
   state = {
     postInfo: {},
-    id: 1,
+    id: '',
     comments: '',
     
   };
@@ -23,7 +27,7 @@ class Post extends Component {
   }
 
   handleViewPosts = (postId) => {
-    console.log(postId + "  post id");
+    console.log(postId + "  post id view post ln:26");
     getPost(postId)
       .then(({ data }) => {
         console.log(data);
@@ -101,7 +105,8 @@ class Post extends Component {
 
           
         </div>
-      <MakeComment  postId={this.state.id || undefined }/>
+      <MakeComment  postId={this.props.match.params.postId || undefined }/>
+      <ViewComments postId={this.props.match.params.postId || undefined }/>
       </React.Fragment>
     );
   }

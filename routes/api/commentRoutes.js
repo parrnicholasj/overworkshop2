@@ -10,7 +10,7 @@ router.route("/getcomments")
 router.route("/getcommentsbyuser")
 .get(commentControl.getCommentsByUser)
 
-router.route("/getcommentsbypost")
+router.route("/getcommentsbypost/:id")
 .get(commentControl.getCommentsByPost)
 
 router.route("/getcomment/:id")

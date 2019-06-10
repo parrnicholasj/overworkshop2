@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const getComments = () => {
-  return axios.get("/comments/getComments");
+export const getCommentsByPost = (postId) => {
+  return axios.get(`/comments/getCommentsByPost/${postId}`)
 };
 
 export const addComment = (comment) => {
@@ -17,6 +17,6 @@ export const addImage = (image) => {
 }
 
 export default {
-  getComments,
+  getCommentsByPost,
   addComment
 };
