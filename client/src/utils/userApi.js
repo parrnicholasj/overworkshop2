@@ -1,5 +1,4 @@
-import axios from 'axios';
-
+import axios from "axios";
 
 export const loginUser = () => {
   return axios.get('/auth/google')
@@ -13,8 +12,12 @@ export const isThereUser = () => {
 
 
 
-export default {
-  isThereUser,
-  loginUser
-  
+// export default {
+//   getPosts
+// };
+
+
+export const getStatus = () => {
+  console.log("hitting route");
+  return axios.get("/users/status");
 };

@@ -7,10 +7,10 @@ const addPost = (req, res) => { //adds a post screenshots optional
   console.log(req.body);
   console.log("postcontroller hitting")
   console.log('-----------' + req.user);
-  if (!req.user) {
-    console.log('not logged in');
-    return 
-  }
+  // if (!req.user) {
+  //   console.log('not logged in');
+  //   return 
+  // }
 
   const {
     title,
