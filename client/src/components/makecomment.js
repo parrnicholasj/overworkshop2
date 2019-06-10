@@ -28,7 +28,7 @@ class MakeComment extends Component {
     event.preventDefault();
     console.log("A comment was submitted: " + JSON.stringify(this.state));
 
-    console.log("post id in makecomment   " +   this.props.postId)
+    console.log("ln:31 post id in makecomment   " +   this.props.postId)
 
     const comment = {
       content: this.state.comment,
