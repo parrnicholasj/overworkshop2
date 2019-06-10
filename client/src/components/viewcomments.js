@@ -29,27 +29,23 @@ class ViewComments extends Component {
   };
 
   render() {
-  //   return (
-  //     <React.Fragment>
-  //       {this.state.commentsList.map(eachComment => {
-  //         return (
-  //           <>
-  //             <h3>Hello</h3>
-  //             <h2>{eachComment.content}</h2>
-  //           </>
-  //         );
-  //       })}
-  //     </React.Fragment>
-  //   );
-  // }
-  return(
-
-    <div>
-    <h3>Hello</h3>
-    {console.log(this.state.commentsList,  "View Comments ln:49")}
-    </div>
-  )
+    return (
+      <React.Fragment>
+        {this.state.commentsList.map(eachComment => {
+          return (
+            <>
+              <div class="card container mt-3 mb-4">
+                <div class="card-header">Comments<span className="ml-3">{eachComment.createdAt}</span></div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">{eachComment.content}</li>
+                </ul>
+              </div>
+            </>
+          );
+        })}
+      </React.Fragment>
+    );
   }
-};
+}
 
 export default ViewComments;
