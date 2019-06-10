@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getCommentsbypost } from '../utils/commentsAPI';
+import { getCommentsByPost } from '../utils/commentsAPI';
 
 class ViewComments extends Component {
 
@@ -23,11 +23,12 @@ class ViewComments extends Component {
 
   handleGetComments = (postId) => {
     console.log(this.props.postId + "   post id in view comments ln:26")
-    getCommentsbypost(postId)
+    getCommentsByPost(postId)
     .then(({ data: commentsList }) =>
     {
       this.setState({ commentsList });
-      console.log(commentsList.content + "  View Comments ln:30")
+      
+      console.log(commentsList + "  View Comments ln:30")
 
     })
     .catch(err => console.log(err))
