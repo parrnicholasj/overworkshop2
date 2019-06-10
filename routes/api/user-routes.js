@@ -12,6 +12,17 @@ const authCheck = (req, res, next) => {
 }
 
 
+router
+ .route('/status')
+ .get((req, res) => {
+   if (req.user) {
+     console.log({ ...req.user, isLoggedIn: true });
+     res.json({ ...req.user})
+   } else {
+     res.json({ isLoggedIn: false });
+   }
+ })
+
 // router.get('/login', authCheck, (req, res) => {
 //   res.render('not logged in')
 //   // res.redirect('/')
