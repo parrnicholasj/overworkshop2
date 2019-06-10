@@ -19,14 +19,30 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     
     
     <title>Overworkshop</title>
+
+    <script  type="text/javascript">
+      function changeImg(imgNumber)	{
+        var myImages = ["https://wallpaperplay.com/walls/full/e/2/4/223486.jpg", "https://wallpaperplay.com/walls/full/c/b/9/223489.jpg", "https://wallpaperplay.com/walls/full/4/9/8/223496.jpg","https://wallpaperplay.com/walls/full/1/f/8/223521.jpg"]; 
+        var imgShown = document.body.style.backgroundImage;
+        var newImgNumber =Math.floor(Math.random()*myImages.length);
+        document.body.style.backgroundImage = 'url('+myImages[newImgNumber]+')';
+      }
+      window.onload=changeImg;
+    </script>
   </head>
-  <body background="https://wallpaperplay.com/walls/full/5/0/1/158539.jpg">
+  
+
+  <body background="https://wallpaperplay.com/walls/full/4/c/9/223508.jpg" id="app">
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    
     <div id="root"></div>
+   
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

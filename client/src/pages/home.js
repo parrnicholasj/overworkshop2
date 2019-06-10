@@ -7,6 +7,7 @@ import NavBar from '../components/navBar';
 
 
 
+
 class Home extends Component {
   state = {
     redirect: false,
@@ -19,6 +20,8 @@ class Home extends Component {
   {
 
     this.handleGetPosts();
+
+
   }
 
   handleChangeOrder = () =>
@@ -37,6 +40,8 @@ class Home extends Component {
     }
     this.handleGetPosts();
   }
+
+
 
   handleGetPosts = () =>
   {
@@ -122,6 +127,7 @@ class Home extends Component {
         {this.renderRedirect(this.state.redirectID)}
 
         <NavBar />
+        
 
         
 
@@ -191,10 +197,12 @@ class Home extends Component {
                               </small>
                               <br />
                             </p>
-                            <button className="btn btn-success btn-lg test" onClick={(e) =>
+                            <div className="row justify-content-end">
+                            <button className="btn btn-outline-dark btn-sm test" onClick={(e) =>
                             {
                               this.handleSubmit(e, post.id)
-                            }}>View Post</button>
+                              }}>Make Comment</button>
+                              </div>
                           </div>
                         </div>
                       </div>
