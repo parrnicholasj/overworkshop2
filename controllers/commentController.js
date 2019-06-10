@@ -6,13 +6,13 @@ const addComment = (req, res) => {
   const {
     content,
     PostId,
-    UserId = req.user.id
+    UserId = req.user.id,
   } = req.body;
   console.log("adding a comment")
   db.Comment.create({
     content,
     PostId,
-    UserId
+    UserId,
     }).then(dbCommentData => res.json(dbCommentData))
     .catch(err => {
       console.log(err);
