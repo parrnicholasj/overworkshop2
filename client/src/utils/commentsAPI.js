@@ -12,6 +12,10 @@ export const addComment = (comment) => {
   });
 };
 
+export const addImage = (image) => {
+  return axios.post('')
+}
+
 export default {
   getCommentsbypost,
   addComment

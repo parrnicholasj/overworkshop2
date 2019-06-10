@@ -9,6 +9,7 @@
 }
 
 .App-header {
+  
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -48,10 +49,23 @@
   background-color: black;
 }
 
-#navHead
-{
-  
+.home-card {
+  opacity: 0.9;
 }
+
+.viewpost-card {
+  opacity: 0.9;
+}
+
+/* #navHead
+{
+} */
+  
+  
+/* .test
+{
+cursor: pointer;
+} */
 
 /* just yeet the bastard to the bottom */
 .row.match-my-cols 
