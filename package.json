@@ -33,7 +33,7 @@
     "prettier": "^1.17.1"
   },
   "engines": {
-    "node": "8.9.2"
+    "node": "10.15.3"
 },
   "scripts": {
     "test": "eslint .",
