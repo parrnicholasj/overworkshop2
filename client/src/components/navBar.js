@@ -4,6 +4,13 @@ import Login from '../pages/login';
 
 class NavBar extends Component
 {
+  state = {
+    loggedIn: false
+  }
+
+  reverseLogIn = () => {
+    this.setState({loggedIn: !this.state.loggedIn})
+  }
 
   render()
   {
@@ -11,10 +18,17 @@ class NavBar extends Component
       <React.Fragment>
         
         
-        <a href="/">
-          <h1 className="display-4 text-light bg-transparent py-3 m-3 pl-4">Overworkshop <Login /></h1>
+        
+          <h1 className="display-4 text-light bg-transparent py-3 m-3
+           pl-4">Overworkshops
+           {!this.state.loggedIn && (
+            
+            <Login reverse={this.reverseLogIn} loggedIn={this.state.loggedIn} />
+           )}
+           
+            </h1>
          
-        </a>
+       
        
 
 

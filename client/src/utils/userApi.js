@@ -1,15 +1,20 @@
-// import axios from 'axios';
+import axios from 'axios';
+
+
+export const loginUser = () => {
+  return axios.get('/auth/google')
+};
+
+export const isThereUser = () => {
+  return axios.get('/auth/status');
+};
 
 
 
-// export const register = () => {
-//   return axios.get('/auth/google');
-// };
 
 
-
-
-
-// export default {
-//   getPosts
-// };
+export default {
+  isThereUser,
+  loginUser
+  
+};

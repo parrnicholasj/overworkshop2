@@ -41,6 +41,17 @@ router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
   
 });
 
+router
+  .route('/status')
+  .get((req, res) => {
+    if (req.user) {
+      console.log({ ...req.user, isLoggedIn: true });
+      res.json({ ...req.user._doc, isLoggedIn: true })
+    } else {
+      res.json({ isLoggedIn: false });
+    }
+  })
+
 // router.route("/newuser")
 //   .post(userControl.register)//use multipart to test in insomnia... <- why tho??
 
