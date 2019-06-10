@@ -1,13 +1,13 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 
 function LoginButton() {
   return (
     <div className="container">
       <div className="row justify-content-end">
-        <Button as="a" href="http://localhost:3001/auth/google" variant="light">
-          Login with Google +
-        </Button>
+      <a
+           className="nav-link" href="http://localhost:3001/auth/google">
+           <button type="button"  className="btn btn-gplus btn-danger"><i className="fab fa-google-plus-g pr-1">Google+ login</i></button>
+         </a>
       </div>
     </div>
   );

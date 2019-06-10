@@ -136,7 +136,7 @@ class Home extends Component {
         <div className="container bg-transparent px-5 pb-5">
           <button className="btn btn-outline-light mx-2" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
           
-          <input type="button" className="btn btn-light" onClick={this.showModal} value="Add Comment" />
+          <input type="button" className="btn btn-light" onClick={this.showModal} value="Add Post" />
 
           <Modal show={this.state.show}
               onClose={this.showModal}>
