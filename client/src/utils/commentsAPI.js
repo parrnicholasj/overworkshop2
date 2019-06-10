@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const getCommentsbypost = () => {
-  return axios.get("/comments/getCommentsbypost");
+export const getCommentsbypost = (postId) => {
+  return axios.get(`/comments/getCommentsbypost/${postId}`)
 };
 
 export const addComment = (comment) => {
