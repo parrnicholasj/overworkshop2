@@ -22,6 +22,7 @@ class ViewComments extends Component {
     console.log(this.props.postId + "   post id in view comments ln:26");
     getCommentsByPost(postId)
       .then(({ data }) => {
+        console.log(data);
         this.setState({ commentsList: data });
       })
       .catch(err => console.log(err));
@@ -45,7 +46,7 @@ class ViewComments extends Component {
 
     <div>
     <h3>Hello</h3>
-    {console.log(this.state.commentsList + "  View Comments ln:49")}
+    {console.log(this.state.commentsList,  "View Comments ln:49")}
     </div>
   )
   }
