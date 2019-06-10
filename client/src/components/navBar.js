@@ -4,6 +4,13 @@ import Login from '../pages/login';
 
 class NavBar extends Component
 {
+  state = {
+    loggedIn: false
+  }
+
+  reverseLogIn = () => {
+    this.setState({loggedIn: !this.state.loggedIn})
+  }
 
   render()
   {
