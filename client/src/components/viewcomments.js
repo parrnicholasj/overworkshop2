@@ -39,7 +39,7 @@ class ViewComments extends Component {
                 <>
                   <li className="list-group-item">
                     <div
-                      className="card border-dark mb-3"
+                      className="card border-dark pb-3"
                     >
                       <div className="card-header text-dark">User: {eachComment.UserId}</div>
                       <div className="card-body text-dark">
