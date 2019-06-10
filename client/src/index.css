@@ -6,7 +6,7 @@ body {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: 1400px;
+    background-size: cover;
     background-repeat: no-repeat;
     background-color: black;
     background-attachment: fixed;
