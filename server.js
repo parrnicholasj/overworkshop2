@@ -16,6 +16,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+
 const routes = require("./routes");
 
 var PORT = process.env.PORT || 3001;
@@ -28,8 +29,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory
-app.use(express.static("public"));
-
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 app.use(routes);
 
 
