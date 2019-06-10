@@ -4,7 +4,7 @@ import { loginUser } from '../utils/userApi'
 import { Link } from 'react-router-dom';
 
 
-const path = process.env.NODE_ENV === "production" ? "YOUR HEROKU LINK/auth/google" : "http://localhost:3001/auth/google"
+const path = process.env.NODE_ENV === "https://overworkshop.herokuapp.com/auth/google" ? "YOUR HEROKU LINK/auth/google" : "http://localhost:3001/auth/google"
 class Login extends React.Component {
 
   login() {
