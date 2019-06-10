@@ -10,11 +10,12 @@ class NavBar extends Component
     return (
       <React.Fragment>
         
-        
+        <div className="row justify-content-center">
         <a href="/">
-          <h1 className="display-4 text-light bg-transparent py-3 m-3 pl-4">Overworkshop <Login /></h1>
-         
-        </a>
+          <h1 className="navbar display-4 text-light bg-dark py-3 m-3 pl-4">Overworkshop <Login /></h1>
+          
+          </a>
+          </div>
        
 
 
