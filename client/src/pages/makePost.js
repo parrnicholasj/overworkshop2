@@ -47,34 +47,17 @@ class MakePost extends Component
     }
     console.log(JSON.stringify(post) + "  add post")
 
-    getStatus()
-      .then(req =>
-      {
-        console.log("req.user =" + req.user)
-        if(req.user != undefined)
-        {
-        addPost(post)
-          .then(postResponse =>
-          {
-            console.log("post response" + postResponse.data);
-          })
-          .catch(err =>
-          {//if no req.user then they are not logged in
-            console.log("error did not work" + err);
-           
-          })
-        }else{
-          alert("There was an error! (make sure you are signed in)")
-        }
-      }
-      )
 
+    addPost(post)
+      .catch(err =>
+      {//if no req.user then they are not logged in
+        console.log("error did not work" + err);
+        alert("There was an error! (make sure you are logged in)");
 
-
-
-
-
+      })
   }
+
+
 
   render()
   {
