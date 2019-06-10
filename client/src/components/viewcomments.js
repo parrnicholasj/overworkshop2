@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import { getCommentsByPost } from '../utils/commentsAPI';
+import React, { Component } from "react";
+import { getCommentsByPost } from "../utils/commentsAPI";
 
 class ViewComments extends Component {
-
   state = {
     commentsList: [],
     postId: ""
@@ -11,40 +10,45 @@ class ViewComments extends Component {
   componentDidMount() {
     this.setState({
       postId: this.props.postId
-    })
+    });
   }
 
-  
-
-  componentWillMount(){
-    const postId = this.props.postId
-    this.handleGetComments(postId)
+  componentWillMount() {
+    const postId = this.props.postId;
+    this.handleGetComments(postId);
   }
 
-  handleGetComments = (postId) => {
-    console.log(this.props.postId + "   post id in view comments ln:26")
+  handleGetComments = postId => {
+    console.log(this.props.postId + "   post id in view comments ln:26");
     getCommentsByPost(postId)
-    .then(({ data: commentsList }) =>
-    {
-      this.setState({ commentsList });
-      
-      console.log(commentsList + "  View Comments ln:30")
-
-    })
-    .catch(err => console.log(err))
-  }
+      .then(({ data }) => {
+        this.setState({ commentsList: data });
+      })
+      .catch(err => console.log(err));
+  };
 
   render() {
+  //   return (
+  //     <React.Fragment>
+  //       {this.state.commentsList.map(eachComment => {
+  //         return (
+  //           <>
+  //             <h3>Hello</h3>
+  //             <h2>{eachComment.content}</h2>
+  //           </>
+  //         );
+  //       })}
+  //     </React.Fragment>
+  //   );
+  // }
+  return(
 
-    return(
-      <React.Fragment>
-      <h3>Hello</h3>
-      </React.Fragment>
-    )
-
+    <div>
+    <h3>Hello</h3>
+    {console.log(this.state.commentsList + "  View Comments ln:49")}
+    </div>
+  )
   }
-
-
-}
+};
 
 export default ViewComments;
