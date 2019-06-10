@@ -156,7 +156,7 @@ class Home extends Component {
           
           
           <div className="row match-my-cols">
-            {this.state.postsList.map(post =>
+            {this.state.postsList.length ? (this.state.postsList.map(post =>
             {
               var shortDesc = post.desc;
               if (shortDesc.length > 255)
@@ -232,7 +232,7 @@ class Home extends Component {
                     </div>
                 </>
               );
-            })}
+            })) : ""}
           </div>
         </div>
 
