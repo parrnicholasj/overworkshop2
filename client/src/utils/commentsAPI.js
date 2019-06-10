@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const getComments = () => {
-  return axios.get("/comments/getComments");
+export const getCommentsbypost = () => {
+  return axios.get("/comments/getCommentsbypost");
 };
 
 export const addComment = (comment) => {
@@ -13,6 +13,6 @@ export const addComment = (comment) => {
 };
 
 export default {
-  getComments,
+  getCommentsbypost,
   addComment
 };
