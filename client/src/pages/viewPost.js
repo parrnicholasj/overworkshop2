@@ -3,11 +3,8 @@ import { getPost } from '../utils/postapi';
 import MakeComment from '../components/makecomment';
 import MakePost from './makePost';
 import NavBar from '../components/navBar';
-<<<<<<< HEAD
 import { upvotePost, downvotePost } from '../utils/postapi';
-=======
 import ViewComments from '../components/viewcomments';
->>>>>>> 916c3edb97d887c82d955c9006d46a3d5eeda260
 
 var post;
 
