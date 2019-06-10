@@ -65,7 +65,7 @@ class MakeComment extends Component {
               id="submit"
               type="submit"
               value="submit"
-              className="btn btn-success btn-lg"
+              className="btn btn-info btn-lg"
             />
           </form>
         </div>

@@ -69,23 +69,23 @@ class Post extends Component {
             
           {/* </div> */}
             <div className="card viewpost-card w-75 mx-auto">
-          <div className="card-body">
+          <div className="card-body bg-dark">
             <div className="row justify-content-between p-4">
                 {/* <h3><span className="badge badge-success">{post.score}</span></h3> */}
                 <nav className="nav flex-column">
-                              <a className="nav-link btn btn-outline-success" onClick={(e) => {this.clickUpvote(e, post.id)}}>Like</a>
-                              <a className="nav-link disabled">{post.score}</a>
-                              <a className="nav-link btn btn-outline-dark" onClick={(e) => {this.clickDownvote(e, post.id)}}>Dislike</a>
+                              <a className="nav-link btn text-light btn-outline-info btn-sm" onClick={(e) => {this.clickUpvote(e, post.id)}}>Like</a>
+                              <a className="nav-link text-light disabled">{post.score}</a>
+                              <a className="nav-link btn text-light btn-outline-light btn-sm" onClick={(e) => {this.clickDownvote(e, post.id)}}>Dislike</a>
                             </nav>
-            <h3 className="card-title text-center">
+            <h3 className="card-title text-light text-center">
             {post.title}
               </h3>
-                <h3><span className="badge badge-success">{post.link}</span></h3> 
+                <h3><span className="badge badge-info">{post.link}</span></h3> 
                 </div>
-              <hr />
+             
               <div className="row justify-content-between p-4">
 
-              <p className="text-center m-3">{post.desc}</p>
+              <p className="text-center m-3 text-light">{post.desc}</p>
                 
                   <img src={post.screenshot} alt="" />
                   
