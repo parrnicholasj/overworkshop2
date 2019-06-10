@@ -3,13 +3,14 @@ import { getPost } from '../utils/postapi';
 import MakeComment from '../components/makecomment';
 import MakePost from './makePost';
 import NavBar from '../components/navBar';
+import ViewComments from '../components/viewcomments';
 
 var post;
 
 class Post extends Component {
   state = {
     postInfo: {},
-    id: 1,
+    id: '',
     comments: '',
     
   };
@@ -22,7 +23,7 @@ class Post extends Component {
   }
 
   handleViewPosts = (postId) => {
-    console.log(postId + "  post id");
+    console.log(postId + "  post id view post ln:26");
     getPost(postId)
       .then(({ data }) => {
         console.log(data);
@@ -76,7 +77,8 @@ class Post extends Component {
 
           
         </div>
-      <MakeComment  postId={this.state.id || undefined }/>
+      <MakeComment  postId={this.props.match.params.postId || undefined }/>
+      <ViewComments postId={this.props.match.params.postId || undefined }/>
       </React.Fragment>
     );
   }

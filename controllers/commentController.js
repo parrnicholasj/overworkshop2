@@ -31,7 +31,7 @@ const getComments = (req, res) => {
     });
 }
 
-const getCommentsByPost = (req, res) => {
+const getCommentsByPost = (PostId) => {
   db.Comment.findAll({where: {
     PostId: req.postId
   }}) 

@@ -187,8 +187,9 @@ class Home extends Component {
                             <p className="card-text text-center">{shortDesc}</p>
                             <p className="card-text text-right">
                               <small className="text-muted">
-                                Last updated 3 mins ago
+                                Post Created: {post.createdAt}
                               </small>
+                              <br />
                             </p>
                             <button className="btn btn-success btn-lg test" onClick={(e) =>
                             {
