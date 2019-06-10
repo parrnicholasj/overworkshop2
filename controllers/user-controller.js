@@ -24,8 +24,16 @@ const register = (req, res) => {
   });
 };
 
+const getUserProfile = async (req, res) => {
+  const [userErr, userProfile] = await handle(db.User.findOne({id: req.id}));
+  if (userErr) {
+    res.status(500).json(userErr)
+  } else {
+    res.status(200).json(userProfile);
+  }
+}
+
 module.exports = {
-  register
-  // login,
-  // getUserProfile
+  register,
+  getUserProfile
 };

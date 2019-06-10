@@ -4,6 +4,11 @@ import { Redirect } from 'react-router-dom';
 import MakePost from './makePost';
 import Login from './login';
 import NavBar from '../components/navBar';
+import UserContext from '../utils/UserContext';
+import { loginCheck } from '../utils/userApi';
+import { homedir } from 'os';
+
+console.log(UserContext);
 
 class Home extends Component {
   state = {
@@ -168,5 +173,7 @@ class Home extends Component {
     );
   }
 }
+
+Home.contextType = UserContext;
 
 export default Home;

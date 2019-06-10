@@ -1,15 +1,16 @@
-// import axios from 'axios';
+import axios from 'axios';
+
+export const getUserProfile = () => {
+  return axios.get('/api/user')
+};
+
+export const loginCheck = () => {
+  return axios.get('/auth/status');
+}
 
 
 
-// export const register = () => {
-//   return axios.get('/auth/google');
-// };
 
-
-
-
-
-// export default {
-//   getPosts
-// };
+export default {
+  loginCheck
+};
