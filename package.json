@@ -32,6 +32,9 @@
     "concurrently": "^4.1.0",
     "prettier": "^1.17.1"
   },
+  "engines": {
+    "node": "8.9.2"
+},
   "scripts": {
     "test": "eslint .",
     "start": "if-env NODE_ENV='production' && npm run start:prod || npm run start:dev",
