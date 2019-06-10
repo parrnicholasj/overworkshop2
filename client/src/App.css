@@ -66,6 +66,13 @@
  
 }
   
+.makecomment {
+  opacity: 0.9;
+}
+
+.viewcomment {
+  opacity: 0.9;
+}
   
 /* .test
 {

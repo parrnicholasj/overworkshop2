@@ -136,7 +136,7 @@ class Home extends Component {
         <div className="container bg-transparent px-5 pb-5">
           <button className="btn btn-info btn-outline-dark mx-2" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
           
-          <input type="button" className="btn btn-light" onClick={this.showModal} value="Add Comment" />
+          <input type="button" className="btn btn-light" onClick={this.showModal} value="Add Post" />
 
           <Modal show={this.state.show}
               onClose={this.showModal}>
@@ -144,19 +144,10 @@ class Home extends Component {
             
           </Modal>
           
-          {/* <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br/> */}
-          
+      
           
           <div className="row match-my-cols">
-            {this.state.postsList.map(post =>
+            {this.state.postsList.length ? (this.state.postsList.map(post =>
             {
               var shortDesc = post.desc;
               if (shortDesc.length > 255)
@@ -197,11 +188,11 @@ class Home extends Component {
                               </small>
                               <br />
                             </p>
-                            <div className="row justify-content-end">
+                            <div className="btn btn-block">
                             <button className="btn btn-outline-dark btn-sm test" onClick={(e) =>
                             {
                               this.handleSubmit(e, post.id)
-                              }}>Make Comment</button>
+                              }}>View Post</button>
                               </div>
                           </div>
                         </div>
@@ -231,7 +222,7 @@ class Home extends Component {
                     
                     </div>
               );
-            })}
+            })) : ""}
           </div>
         </div>
 
