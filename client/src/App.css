@@ -57,9 +57,11 @@
   opacity: 0.9;
 }
 
-/* #navHead
+.navbar
 {
-} */
+  opacity: 0.9;
+ 
+}
   
   
 /* .test
