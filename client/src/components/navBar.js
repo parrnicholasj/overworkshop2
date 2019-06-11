@@ -4,18 +4,27 @@ import Login from '../pages/login';
 
 class NavBar extends Component
 {
+  state = {
+    loggedIn: false
+  }
+
+  reverseLogIn = () => {
+    this.setState({loggedIn: !this.state.loggedIn})
+  }
 
   render()
   {
     return (
       <React.Fragment>
         
-        <div className="row justify-content-center">
+        <div className="row justify-content-center navbar bg-dark">
+          
         <a href="/">
-          <h1 className="navbar display-4 text-light bg-dark py-3 m-3 pl-4">Overworkshop <Login /></h1>
+          <h1 className="display-4 text-light py-3 m-3 pl-4 justify-content-center">Overworkshop <Login /></h1>
           
           </a>
-          </div>
+        </div>
+        
        
 
 

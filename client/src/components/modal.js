@@ -1,12 +1,12 @@
 import React from 'react';
 
 const backdropStyle = {
-  position: 'fixed',
+  position: '',
   top: 0,
   bottom: 0,
   left: 0,
   right: 0,
-  backgroundColor: 'rgba(0,0,0,3)',
+  backgroundColor: 'rgba(0,0,0,3, 0.1)',
   padding: 50
 }
 
@@ -17,7 +17,8 @@ const modalStyle = {
   minHeight: 300,
   margin: '0 auto',
   padding: 30,
-  position: 'relative'
+  position: 'relative',
+  zIndex: 1000,
 };
 
 
