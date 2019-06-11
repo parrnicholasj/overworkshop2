@@ -27,6 +27,7 @@ class Modal extends React.Component {
 
   onClose = (e) => {
     this.props.onClose && this.props.onClose(e);
+    window.location.reload();
   }
   
   

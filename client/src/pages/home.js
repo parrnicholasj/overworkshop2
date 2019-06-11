@@ -3,7 +3,7 @@ import { getPosts, getPostsPopular, upvotePost, downvotePost } from '../utils/po
 import { Redirect } from 'react-router-dom';
 import MakePost from './makePost';
 import Modal from '../components/modal'
-import NavBar from '../components/navBar';
+import NavBarhome from '../components/navBarHome';
 
 
 
@@ -126,7 +126,7 @@ class Home extends Component {
         {/* this must be in here to function */}
         {this.renderRedirect(this.state.redirectID)}
 
-        <NavBar />
+        <NavBarhome />
         
 
         

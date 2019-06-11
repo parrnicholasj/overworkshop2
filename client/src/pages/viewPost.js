@@ -41,6 +41,7 @@ class Post extends Component {
     upvotePost(id)
       
       .catch(err => console.log(err));
+      window.location.reload();
   }
 
   clickDownvote(event, id)
@@ -49,6 +50,7 @@ class Post extends Component {
     downvotePost(id)
       
       .catch(err => console.log(err));
+      window.location.reload();
   }
 
   render() {
@@ -102,8 +104,12 @@ class Post extends Component {
 
           
         </div>
-      <MakeComment  postId={this.props.match.params.postId || undefined }/>
-      <ViewComments postId={this.props.match.params.postId || undefined }/>
+        <MakeComment postId={this.props.match.params.postId || undefined} />
+        <div className="scrollbar" id="style-2">
+                     <div className="force-overflow">
+            <ViewComments postId={this.props.match.params.postId || undefined} />
+            </div>
+          </div>
       </React.Fragment>
     );
   }

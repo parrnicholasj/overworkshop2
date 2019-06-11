@@ -32,14 +32,15 @@ class ViewComments extends Component {
     return (
       <React.Fragment>
         <div className="card container text-white bg-dark mt-3 mb-4 col-9">
-          <div className="card-header viewcomment">Comments</div>
-          <ul className="list-group list-group-flush">
+
+          <div className="card-header viewcomment" >Comments</div>
+          <ul className="list-group list-group-flush ">
             {this.state.commentsList.map(eachComment => {
               return (
                 <>
-                  <li className="list-group-item viewcomment">
+                  <li className="bg-light">
                     <div
-                      className="card border-dark pb-3"
+                      
                     >
                       <div className="card-header text-dark">User: {eachComment.UserId}</div>
                       <div className="card-body text-dark">
