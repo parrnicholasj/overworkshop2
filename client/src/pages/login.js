@@ -1,7 +1,5 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import { loginUser } from '../utils/userApi'
-import { Link } from 'react-router-dom';
 
 
 const path = process.env.NODE_ENV === "https://overworkshop.herokuapp.com/auth/google" ? "YOUR HEROKU LINK/auth/google" : "http://localhost:3001/auth/google"
@@ -21,7 +19,7 @@ class Login extends React.Component {
           </Button> */}
 
           <a
-            className="nav-link" href={path}>
+            className="nav-link" href="https://overworkshop.herokuapp.com/auth/google">
             <button type="button" className="btn btn-gplus btn-danger"><i className="fab fa-google-plus-g pr-1">Google+</i></button>
           </a>
         </div>
