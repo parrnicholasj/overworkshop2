@@ -48,10 +48,10 @@ class MakeComment extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="card container text-white bg-dark">
+        <div className="card container text-white bg-dark makecomment col-6 ">
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
-              <div className="card-title mt-3" htmlFor="Comment">Add Comment Here</div>
+              <div className="card-title mt-3 text-center" htmlFor="Comment">Add Comment Here</div>
               <textarea
                 className="form-control mb-2"
                 id="comment"

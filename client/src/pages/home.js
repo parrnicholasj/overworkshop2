@@ -134,7 +134,7 @@ class Home extends Component {
       
 
         <div className="container bg-transparent px-5 pb-5">
-          <button className="btn btn-secondary mx-2" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
+          <button className="btn btn-info btn-outline-dark mx-2" onClick={this.handleChangeOrder}>Sorting by {this.state.order}</button>
           
           <input type="button" className="btn btn-light" onClick={this.showModal} value="Add Post" />
 
@@ -144,16 +144,7 @@ class Home extends Component {
             
           </Modal>
           
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br/>
-          
+      
           
           <div className="row match-my-cols">
             {this.state.postsList.length ? (this.state.postsList.map(post =>
@@ -166,14 +157,14 @@ class Home extends Component {
                   .concat(" ... click for more"); //so shit does not get to long
               }
               return (
-                <>
+              
                   <div className="container mt-5">
                     <div className="card home-card" id={post.id}>
                       <div className="card-body">
                         <div className="row">
                           <div className="col-1">
                             <nav className="nav flex-column">
-                              <a className="nav-link btn btn-outline-success" onClick={(e) => {this.clickUpvote(e, post.id)}}>Like</a>
+                              <a className="nav-link btn btn-outline-info" onClick={(e) => {this.clickUpvote(e, post.id)}}>Like</a>
                               <a className="nav-link disabled">{post.score}</a>
                               <a className="nav-link btn btn-outline-dark" onClick={(e) => {this.clickDownvote(e, post.id)}}>Dislike</a>
                             </nav>
@@ -185,7 +176,7 @@ class Home extends Component {
                               {post.title}
                               </h3>
                             
-                              <h4 className="badge badge-success d-flex justify-content-center">
+                              <h4 className="badge badge-info d-flex justify-content-center">
                                 {post.link}
                               </h4>
                             
@@ -230,7 +221,6 @@ class Home extends Component {
                     </div>
                     
                     </div>
-                </>
               );
             })) : ""}
           </div>
