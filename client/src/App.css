@@ -80,6 +80,23 @@
   margin-right:30%;
   margin-top:2%;
 }
+
+.scrollbar
+{
+	
+	
+	height: 300px;
+  width: 80%;
+  margin: auto;
+	
+	overflow-y: scroll;
+	
+}
+
+.force-overflow
+{
+	/* min-height: 450px; */
+}
   
 /* .test
 {

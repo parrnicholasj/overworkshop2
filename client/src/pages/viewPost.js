@@ -104,8 +104,12 @@ class Post extends Component {
 
           
         </div>
-      <MakeComment  postId={this.props.match.params.postId || undefined }/>
-      <ViewComments postId={this.props.match.params.postId || undefined }/>
+        <MakeComment postId={this.props.match.params.postId || undefined} />
+        <div className="scrollbar" id="style-2">
+                     <div className="force-overflow">
+            <ViewComments postId={this.props.match.params.postId || undefined} />
+            </div>
+          </div>
       </React.Fragment>
     );
   }
