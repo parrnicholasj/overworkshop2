@@ -41,6 +41,7 @@ class Post extends Component {
     upvotePost(id)
       
       .catch(err => console.log(err));
+      window.location.reload();
   }
 
   clickDownvote(event, id)
@@ -49,6 +50,7 @@ class Post extends Component {
     downvotePost(id)
       
       .catch(err => console.log(err));
+      window.location.reload();
   }
 
   render() {

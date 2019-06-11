@@ -43,6 +43,7 @@ class MakeComment extends Component {
       .catch(err => {
         console.log(err);
       });
+      window.location.reload();
   }
 
   render() {
@@ -66,6 +67,7 @@ class MakeComment extends Component {
               type="submit"
               value="submit"
               className="btn btn-outline-light mb-3"
+              
             />
           </form>
 
