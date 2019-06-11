@@ -49,7 +49,6 @@ router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
   // res.redirect('localhost:3000');
   // res.send(req.user);
   //--------- redirect them to 'profile page or home page' 
-  Z
 });
 
 router
