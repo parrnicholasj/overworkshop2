@@ -29,10 +29,10 @@ router
 // })
 
 router.get('/logout', (req, res) => {
-  let redirectPath = (process.env.NODE_ENV === "production") ? "/" : "http://localhost:3000"
+  // let redirectPath = (process.env.NODE_ENV === "production") ? "/" : "http://localhost:3000"
   // redirectPath = `${redirectPath}/?userId=${req.user._id}`;
   // res.json(req.user);
-  res.redirect(redirectPath);
+  res.redirect('https://overworkshop.herokuapp.com/');
   // req.logout();
   // res.redirect('/');
 })
@@ -43,9 +43,9 @@ router.get('/google', passport.authenticate('google', {
 
 // callback route for google to redirect to
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-  let redirectPath = (process.env.NODE_ENV === "production") ? "/" : "http://localhost:3000"
+  // let redirectPath = (process.env.NODE_ENV === "production") ? "/" : "http://localhost:3000"
   // redirectPath = `${redirectPath}/?userId=${req.user._id}`;
-  res.redirect(redirectPath);
+  res.redirect('https://overworkshop.herokuapp.com/');
   // res.redirect('localhost:3000');
   // res.send(req.user);
   //--------- redirect them to 'profile page or home page' 
